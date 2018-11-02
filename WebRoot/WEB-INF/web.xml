@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  <display-name>HomeWork</display-name>
+  <display-name>SSM</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -9,51 +9,58 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:applicationContext.xml</param-value>
-  </context-param>
   
-  <!-- 1.注册监听器 -->
-  <listener>
-  		<listener-class>
-  			org.springframework.web.context.ContextLoaderListener
-  		</listener-class>
-  </listener>
- 
-  <!-- 注册字符过滤器  -->
+  <!-- 过滤器 -->
   <filter>
-  		<filter-name>CharacterEncodingFilter</filter-name>
-  		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-  		<init-param>
-  			<param-name>encoding</param-name>
-  			<param-value>UTF-8</param-value>
- 		 </init-param>
- 	    <init-param>
-  			<param-name>forceResponseEncoding</param-name>
-  			<param-value>true</param-value>
-  		</init-param>
- 		 <init-param>
-  			<param-name>forceResponseEncoding</param-name>
-  			<param-value>true</param-value>
-  		</init-param>
+  	<filter-name>CharacterEncodingFilter</filter-name>
+  	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>UTF-8</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>forceRequestEncoding</param-name>
+  		<param-value>true</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>forceResponseEncoding</param-name>
+  		<param-value>true</param-value>
+  	</init-param>
   </filter>
   <filter-mapping>
-  		<filter-name>CharacterEncodingFilter</filter-name>
-  		<url-pattern>/*</url-pattern>
+  	<filter-name>CharacterEncodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
   </filter-mapping>
-  <!-- 创建中央调度器  -->
-   <servlet>
-  	<servlet-name>springmvc</servlet-name>
-  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-  	<init-param>
-  		<param-name>contextConfigLocation</param-name>
-  		<param-value>classpath:applicationContext.xml</param-value>
-  	</init-param>
-  	<load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
+  
+  <!-- 1.注册监听器，监听servletContext对象的创建
+  		此监听器会自动加载Web-Inf下的spring的配置文件，因此需要单独指定
+  		配置文件的位置（spring框架的配置文件applicationContext.xml）
+    -->
+    <context-param>
+    	<param-name>contextConfigLocation</param-name>
+    	<param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
+  	<listener>
+  		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  	</listener>
+  	<!--  
+  		2.注册中央调度器（Servlet）
+  		 此servlet在创建的时候，会自动在Web-inf下寻找springmvc的配置文件
+  		 需要单独指定springmvc.xml的位置
+  	-->
+  	<servlet>
+  		<servlet-name>springmvc</servlet-name>
+  		<servlet-class>org.springframework.web.servlet.DispatcherServlet </servlet-class>
+  		<init-param>
+  			<param-name>contextConfigLocation</param-name>
+  			<param-value>classpath:springmvc.xml</param-value>
+  		</init-param>
+  		<load-on-startup>1</load-on-startup>
+  	</servlet>
+  	<servlet-mapping>
   		<servlet-name>springmvc</servlet-name>
   		<url-pattern>*.do</url-pattern>
-  </servlet-mapping> 
+  	</servlet-mapping>
+
+  	
 </web-app>
