@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gz.dao.UserDao">
+	
+	<select id="selectUser" resultType="User">
+		select * from user 
+	</select>
+	<select id="selectUserByName" resultType="User">
+		select * from user where Uname=#{Name} 
+	</select>
+	<select id="selectUserByCondition" resultType="User">
+		select * from user where Uname=#{Name} and Password=#{Password}
+	</select>
+	<insert id="insertUser">
+	    insert into user(Uid,Uname,Age,Sex,Password,Phone,e_mail) VALUES(#{Uid},#{Name},#{Age},#{Sex},#{Password},#{Phone},#{e_mail});
+	</insert>
+	<delete id="deleteUser">
+	 	delete * from user where Uid = ${Uid};
+	</delete>
+	<update id="updateUser">
+	    UPDATE user SET Age=#{Age},Sex=#{Sex},Phone=#{Phone},e_mail=#{e_mail}  WHERE Uid=#{Uid};
+	</update>
+</mapper>
