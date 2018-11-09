@@ -13,6 +13,7 @@ private String  imge;
 public News() {
 	super();
 }
+
 public int getNid() {
 	return Nid;
 }

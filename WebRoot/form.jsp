@@ -6,11 +6,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html >
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
 <link href="css/style1.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+  $("#save").click(function(){
+		var str ={
+		    "title":document.getElementById('title').value,
+		    "author":document.getElementById('author').value,
+		    "n_Content":document.getElementById('n_Content').value,
+		    "imge":document.getElementById('image').value
+		    };
+		    var str_json = JSON.stringify(str); 
+			  $.ajax({
+			    url:"news/insertNews.do",
+			    type:"post",
+			    data:str_json,
+				contentType:"application/json; charset=utf-8",
+				dataType:"json", 
+				success:function(data){
+				if(data>0)
+				{
+				alert("保存成功");
+				}
+				else
+				{
+				alert("保存失败");
+				}
+				},
+				error:function(){}
+			    })
+			  });
+})
+</script>
 <style type="text/css">
 li.file{
 	display:inline-block;
@@ -44,15 +76,13 @@ li.file input{
     <div class="formbody">
     
     <div class="formtitle"><span>基本信息</span></div>
-    <form  action="news/insertNews.do" method="post">
     <ul class="forminfo" >
-    <li><label>文章标题</label><input name="title" type="text" class="dfinput" /><i>标题不能超过30个字符</i></li>
-    <li><label>作者</label><input name="Author" type="text" class="dfinput" /><i>多个关键字用,隔开</i></li>
-    <li><label><input type="file" name="image">选择图片</label></li>
-    <li><label>文章内容</label><textarea name="n_Content" cols="" rows="" class="textinput"></textarea></li>
-    <li><button type="submit" value="确认保存">确认保存</button></li>
+    <li><label>文章标题</label><input id="title" name="title" type="text" class="dfinput" /></li>
+    <li><label>作者</label><input id="author" name="author" type="text" class="dfinput" /></li>
+    <li><label><input type="file" id="image" name="image">选择图片</label></li>
+    <li><label>文章内容</label><textarea id="n_Content" name="n_Content" cols="" rows="" class="textinput"></textarea></li>
+    <li><button type="submit" value="确认保存" id="save">确认保存</button></li>
     </ul>
-    </form>
     
     </div>
 </body>

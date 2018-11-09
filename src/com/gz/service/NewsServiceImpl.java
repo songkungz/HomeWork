@@ -41,4 +41,10 @@ public class NewsServiceImpl implements NewsService {
 		return dao.deleteNews(id);
 	}
 
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return dao.getCount();
+	}
+
 }

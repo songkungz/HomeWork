@@ -11,4 +11,5 @@ public interface NewsService {
  int updateNewsById(int id);
  int deleteNews(int id);
  List<News> selectNewsByTitleOrAuthor(String condition);
+ int getCount();
 }

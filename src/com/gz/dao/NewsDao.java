@@ -10,4 +10,5 @@ public interface NewsDao {
     int updateNewsByid(int id);//根据新闻id修改内容
     int deleteNews(int id);//根据id删除新闻
     List<News> selectNewsByTitleOrAuthor(String condition);//根据标题或者作者进行新闻查询
+    int getCount();//获取数据总条数
 }

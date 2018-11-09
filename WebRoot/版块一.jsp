@@ -56,7 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 		<section class="pc-banner">
-			<div class="w3-banner-heading">
+			<div class="w3-banner-heading"></div>
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide swiper-slide-center none-effect">

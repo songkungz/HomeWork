@@ -32,13 +32,12 @@ $(document).ready(function(){
 
 });
 
-var listurl ="news/newsinfo.do";
 $(function(){
 newsList();
 })
 function newsList(){
 	$.ajax({
-	url:listurl,
+	url:"news/newsinfo.do",
  	type:"post",
  
  	success:function(list){	
@@ -63,15 +62,22 @@ function newsList(){
  $(function(){
                 
 　　// test 的点击事件
-　　$("#select_list").click(function(){
-              
+　　$("#select_list").click(function(){ 
             $.ajax({
-                url:listurl,
+                url:"news/selectinfo.do",
                 type:"post",
+                data:{"condition":document.getElementById('condition').value},
                 dataType:"json",//返回的数据类型，常用：html/text/json
-                data:{name:"condition"},
                 success:function(list){	
-                	newsList()
+                	$("#news_list").html("");
+	 				$.each(list,function(index,value){	
+				 			$("#news_list").append("<tr>")
+				 			.append("<td>"+value.title+"</td>")
+				 			.append("<td>"+value.n_Content+"</td>")
+				 			.append("<td>"+value.author+"</td>")
+				 			.append("<td>"+value.time+"</td>")
+				 			.append("</tr>")
+	 				s})
 			 	},
             })  
 　　});
@@ -98,7 +104,7 @@ function newsList(){
     </ul>
     </div>
     <div> </div>
-    <input type="button" onclick="initNews()" value="点我"/>
+  
     <div class="rightinfo">
     
     <div class="tools">
