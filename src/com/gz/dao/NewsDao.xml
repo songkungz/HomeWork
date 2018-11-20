@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.gz.dao.NewsDao">
 	
 	<select id="selectAllNews" resultType="News">
-		select * from news limit #{startPos},#{pageSize}
+		select * from news limit 10;
 	</select>
 	<select id="getCount" resultType="long">
 	     select count(*) from news
@@ -14,10 +14,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from news where title=#{Title} or Author=#{Author}
 	</select>
 	<insert id="insertNews">
-	    insert into news(Nid,Title,n_Content,Time,Author,attribute1) VALUES(#{Nid},#{Title},#{n_Content},#{Time},#{Author},#{imge});
+	    insert into news(Nid,Title,n_Content,Time,Author,attribute1) VALUES(#{Nid},#{Title},#{n_Content},#{Time},#{Author},#{filePath});
 	</insert>
 	<delete id="deleteNews">
-	   delete * from news where Nid = #{Nid};
+	   delete  from news where Nid = #{Nid};
 	</delete>
 	<update id="updateNewsByid">   
 		UPDATE news SET Title=#{Title},n_Content=#{n_Content},Author=#{Author} WHERE Nid=#{Nid}; 

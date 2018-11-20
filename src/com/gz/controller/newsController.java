@@ -23,8 +23,8 @@ public class newsController {
     public Object findAllNews() {//鏌ヨ鎵�鏈夋柊闂�
         int start = 0;
         int pageSize = 10;
-        int count = service.getCount();
-        int page = count/pageSize;
+      
+     
         List<News> list = service.findNews();
     	return list;
     }

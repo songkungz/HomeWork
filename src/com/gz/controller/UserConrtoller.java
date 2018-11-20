@@ -1,12 +1,17 @@
 package com.gz.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -28,31 +33,45 @@ public List<User> findUser() {
 }
 @RequestMapping("/regiest.do")
 @ResponseBody
-public int Regiester(@RequestBody User user) {
-	int result;
-	if(service.selectUserByName(user.getName())!=null)
+public void Regiester(HttpServletRequest request,HttpServletResponse response) throws IOException {
+	PrintWriter print = response.getWriter();
+	User user = new User();
+	String name = request.getParameter("username");
+	String password = request.getParameter("password");
+	int age =request.getParameter("zip").length()==0?128:Integer.valueOf(request.getParameter("zip"));
+	String email = request.getParameter("email");
+	String phone = request.getParameter("phone");
+	String sex  =  request.getParameter("states")=="nan"?"男":"女"; 
+	user.setName(name);
+	user.setPassword(password);
+	user.setAge(age);
+	user.setE_mail(email);
+	user.setPhone(phone);
+	user.setSex(sex);
+	if(service.selectUserByName(user.getName()) != null)
 		{
-			result = 0;
+			 print.write("<script>alert('该用户已被占用');</script>");
+			 response.sendRedirect("http://localhost:8080/HomeWork/regiest.jsp");
 		}
 	else
 		{
-			result = service.insertUser(user);
+			service.insertUser(user);
+			print.write("<script>alert('注册成功')</script>");
+			response.sendRedirect("http://localhost:8080/HomeWork/login.jsp");
 		}
-	return result;
 }
 @RequestMapping("/login.do")
 public ModelAndView Login(String name, String pwd,HttpSession session,ModelAndView mv) 
 {   
 	User user = service.selectUserByCondition(name, pwd);
-	if(user!=null)
+	if(name!=null&&user!=null)
 	{
 		session.setAttribute("user", user);
 		mv.setView(new RedirectView("http://localhost:8080/HomeWork/index.jsp"));
 	}
 	else
 	{
-		 mv.addObject("message","alert('登录名和密码错误，请重新输入')");
-         mv.setViewName("login");
+		mv.setView(new RedirectView("http://localhost:8080/HomeWork/login.jsp"));
 	}
 	return mv;
 }

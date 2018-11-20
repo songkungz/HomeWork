@@ -42,12 +42,14 @@ function newsList(){
  
  	success:function(list){	
 	 		$("#news_list").html("");
-	 		$.each(list,function(index,value){	
+	 			$.each(list,function(index,value){	
 		 			$("#news_list").append("<tr>")
 		 			.append("<td>"+value.title+"</td>")
 		 			.append("<td>"+value.n_Content+"</td>")
 		 			.append("<td>"+value.author+"</td>")
 		 			.append("<td>"+value.time+"</td>")
+		 			.append("<td>"+"<a  href='news/deleteNews.do?id="+value.nid+"'onclick=confirmReg();>删除</a>" +"</td>")
+		 			.append("<td>"+"<a href='news/updateNews.do?id="+value.nid+"'>修改</a>" +"</td>")
 		 			.append("</tr>")
 	 		})
 	 		
@@ -58,9 +60,17 @@ function newsList(){
  }
  )
  }
+  function confirmReg() {  
+  var msg = "您真的确定要删除吗？\n\n请确认！"; 
+   if (confirm(msg)==true)
+  	{  
+  			return true;  
+  	}
+   else{ 
+    return false;  
+    }  }  
  
- $(function(){
-                
+ $(function(){              
 　　// test 的点击事件
 　　$("#select_list").click(function(){ 
             $.ajax({
@@ -114,6 +124,7 @@ function newsList(){
         <li class="click"><span><img src="images/t02.png" /></span>修改</li>
         <li><span><img src="images/t03.png" /></span>删除</li>
         <li><span><img src="images/t04.png" /></span>统计</li>
+        
         </ul>
         
         
@@ -134,9 +145,13 @@ function newsList(){
         <th>内容</th>
         <th>作者</th>
         <th>发布时间</th>
+        <th></th>
+          <th></th>
         </tr>
         </thead>
+  
         <tbody id="news_list">
+      
         <!--<tr>
         <td><input id="info" name="info" type="checkbox" value="" /></td>
         

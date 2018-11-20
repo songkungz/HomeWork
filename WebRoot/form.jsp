@@ -31,11 +31,11 @@ $(function(){
 				success:function(data){
 				if(data>0)
 				{
-				alert("保存成功");
+						alert("保存成功");
 				}
 				else
 				{
-				alert("保存失败");
+						alert("保存失败");
 				}
 				},
 				error:function(){}
