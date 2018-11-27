@@ -39,7 +39,7 @@ function newsList(){
 	$.ajax({
 	url:"news/newsinfo.do",
  	type:"post",
- 
+ 	data:{"pageNow":1},
  	success:function(list){	
 	 		$("#news_list").html("");
 	 			$.each(list,function(index,value){	
@@ -48,8 +48,8 @@ function newsList(){
 		 			.append("<td>"+value.n_Content+"</td>")
 		 			.append("<td>"+value.author+"</td>")
 		 			.append("<td>"+value.time+"</td>")
-		 			.append("<td>"+"<a  href='news/deleteNews.do?id="+value.nid+"'onclick=confirmReg();>删除</a>" +"</td>")
-		 			.append("<td>"+"<a href='news/updateNews.do?id="+value.nid+"'>修改</a>" +"</td>")
+		 			.append("<td><button  onclick=deleteNews("+value.nid+") class=''  type=button>删除</button></td>")
+		 			.append("<td><button id='update' class='' name="+value.nid+"  type=button>修改</button></td>")
 		 			.append("</tr>")
 	 		})
 	 		
@@ -60,24 +60,17 @@ function newsList(){
  }
  )
  }
-  function confirmReg() {  
-  var msg = "您真的确定要删除吗？\n\n请确认！"; 
-   if (confirm(msg)==true)
-  	{  
-  			return true;  
-  	}
-   else{ 
-    return false;  
-    }  }  
+  
  
- $(function(){              
+ $(function( ){              
 　　// test 的点击事件
 　　$("#select_list").click(function(){ 
             $.ajax({
                 url:"news/selectinfo.do",
                 type:"post",
-                data:{"condition":document.getElementById('condition').value},
-                dataType:"json",//返回的数据类型，常用：html/text/json
+                data:{"condition":document.getElementById('condition').value,
+                "pageNow":2},
+                dataType:"json",//返回的数据类型
                 success:function(list){	
                 	$("#news_list").html("");
 	 				$.each(list,function(index,value){	
@@ -86,14 +79,70 @@ function newsList(){
 				 			.append("<td>"+value.n_Content+"</td>")
 				 			.append("<td>"+value.author+"</td>")
 				 			.append("<td>"+value.time+"</td>")
+				 			.append("<td><button  id='delete' class='' onclick=deleteNews("+value.nid+")  type=button >删除</button></td>")
+		 					.append("<td><button id='update' class='' onclick=updateNews("+value.nid+")  type=button>修改</button></td>")
 				 			.append("</tr>")
-	 				s})
+	 				})
 			 	},
+			 	error:function(){
+ 						alert("请求失败")
+ 				}
             })  
 　　});
   })
- 
-     
+ function deleteNews(id){
+    var msg =confirm("确定删除么？");
+    if(msg==true)
+        {
+        $.ajax({
+                url:"news/deleteNews.do",
+                type:"post",
+                data:{"nid":id},
+                success:function(data){	
+                if(data>0){
+                		window.location = "http://localhost:8080/HomeWork/right.jsp";
+                }
+                 else
+                 {
+                 		alert('删除失败！');
+                 }
+			 	},
+			 	error:function(){
+ 						alert("请求失败")
+ 				}
+            })  
+       }
+      else
+           alert("你取消了本次操作")
+}
+function updateNews(id){
+    var msg =confirm("确定删除么？");
+    if(msg==true)
+        {
+        $.ajax({
+                url:"news/deleteNews.do",
+                type:"post",
+                data:{"id":id},
+                success:function(data){	
+                if(data>0){
+                		window.location = "http://localhost:8080/HomeWork/right.jsp";
+                }
+                 else
+                 {
+                 		alert('删除失败！');
+                 }
+			 	},
+			 	error:function(){
+ 						alert("请求失败")
+ 				}
+            })  
+       }
+      else
+           alert("你取消了本次操作")
+}
+      
+
+
 
  
      

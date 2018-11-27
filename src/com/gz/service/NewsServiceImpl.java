@@ -18,21 +18,15 @@ public class NewsServiceImpl implements NewsService {
 	}
 
 	@Override
-	public List<News> findNews() {
+	public int updateNewsById(int id, News news) {
 		// TODO Auto-generated method stub
-		return dao.selectAllNews();
+		return dao.updateNewsByid(id,news);
 	}
 
 	@Override
-	public int updateNewsById(int id) {
+	public List<News> selectNewsByAuthor(String condition) {
 		// TODO Auto-generated method stub
-		return dao.updateNewsByid(id);
-	}
-
-	@Override
-	public List<News> selectNewsByTitleOrAuthor(String condition) {
-		// TODO Auto-generated method stub
-		return dao.selectNewsByTitleOrAuthor(condition);
+		return dao.selectNewsByAuthor(condition);
 	}
 
 	@Override
@@ -45,6 +39,12 @@ public class NewsServiceImpl implements NewsService {
 	public int getCount() {
 		// TODO Auto-generated method stub
 		return dao.getCount();
+	}
+
+	@Override
+	public List<News> findNews() {
+		// TODO Auto-generated method stub
+		return dao.selectAllNews();
 	}
 
 }

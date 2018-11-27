@@ -4,17 +4,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gz.dao.NewsDao">
 	
-	<select id="selectAllNews" resultType="News">
-		select * from news limit 10;
+	<select id="selectAllNews" resultType="News" >
+		select * from news  
 	</select>
-	<select id="getCount" resultType="long">
+	<select id="getCount" resultType="Integer">
 	     select count(*) from news
 	</select>
-	<select id="selectNewsByTitleOrAuthor" resultType="News">
-		select * from news where title=#{Title} or Author=#{Author}
+	<select id="selectNewsByAuthor" resultType="News">
+		select * from news where Author=#{Author}
 	</select>
 	<insert id="insertNews">
-	    insert into news(Nid,Title,n_Content,Time,Author,attribute1) VALUES(#{Nid},#{Title},#{n_Content},#{Time},#{Author},#{filePath});
+	    insert into news(Nid,Title,n_Content,Time,Author,imge) VALUES(#{Nid},#{Title},#{n_Content},#{Time},#{Author},#{filePath});
 	</insert>
 	<delete id="deleteNews">
 	   delete  from news where Nid = #{Nid};

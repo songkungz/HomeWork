@@ -3,6 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<!DOCTYPE html>
 <html>
 <head>
 <title>Signin</title>
@@ -15,8 +16,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--webfonts-->
 <!--//webfonts-->
 </head>
-<script type="text/javascript">
-</script>
 <body>
 	<h1>欢迎登录</h1>
 		<div class="app-cam">
@@ -34,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				<div class="new">
 					<p class="wang"><a href="#">忘记密码</a></p>
-					<p class="sign"><a href="register.html">没有账号，注册</a></p>
+					<p class="sign"><a href="regiest.jsp">没有账号，注册</a></p>
 					<div class="clear"></div>
 				</div>
 			</form>

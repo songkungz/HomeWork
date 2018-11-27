@@ -3,12 +3,13 @@ package com.gz.bean;
 import java.util.Date;
 
 public class News {
-private int Nid;
+private Integer Nid;
 private String Title;
 private String n_Content;
 private Date Time;
 private String Author;
 private String  imge;
+
 
 public News() {
 	super();

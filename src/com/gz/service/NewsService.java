@@ -3,13 +3,15 @@ package com.gz.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.gz.bean.News;
 
 public interface NewsService {
  int insertNews(News news);
  List<News> findNews();
- int updateNewsById(int id);
+ int updateNewsById(int id,News news);
  int deleteNews(int id);
- List<News> selectNewsByTitleOrAuthor(String condition);
+ List<News> selectNewsByAuthor(String condition);
  int getCount();
 }
