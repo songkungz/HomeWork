@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/style.css" />
+    <script type="text/javascript" src="../Js/jquery.js"></script>
+    <script type="text/javascript" src="../Js/jquery.sorted.js"></script>
+    <script type="text/javascript" src="../Js/bootstrap.js"></script>
+    <script type="text/javascript" src="../Js/ckform.js"></script>
+    <script type="text/javascript" src="../Js/common.js"></script>
+
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+body a{
+    padding-left: 20px;
+    font-size: 20px;
+}
+span {
+    font-size: 16px;
+}
+
+    </style>
+</head>
+<body>
+<br><br><br><a href="../index.html">首页</a>&nbsp; > &nbsp; <span>新闻信息</span>
+<form class="form-inline definewidth m20" action="index.html" method="get">  
+    新闻标题：
+    <input type="text" name="rolename" id="rolename"class="abc input-default" placeholder="" value="">&nbsp;&nbsp;  
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp; <button type="button" class="btn btn-success" id="addnew">新增新闻</button>
+</form>
+<table class="table table-bordered table-hover definewidth m10" >
+    <thead>
+    <tr>
+        <th>新闻ID</th>
+        <th>新闻标题</th>
+        <th>创建时间</th>
+        <th>作者</th>
+        <th>正文</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+	     <tr>
+            <td>9527</td>
+            <td><a href="news-show1.html">xxxxxx</a></td>
+            <td>2018-11-17</td>
+            <td>xxx</td>
+            <td>xxxxxxxxx</td>
+            <td><button id="">删除</BUTTON>&nbsp;&nbsp;|&nbsp;&nbsp;<button id="">编辑</button></td>
+        </tr></table>
+        <div class="inline pull-right page">
+         xx条记录 1/xxx 页  <a href='#'>下一页</a>     <span class='current'></span> <a href='#' >最后一页</a>    </div>
+		</body>
+		</html>
+
+ <script type="text/javascript">
+$(function(){
+newsList();
+})
+function newsList(){
+	$.ajax({
+	url:"news/newsinfo.do",
+ 	type:"post",
+ 	data:{"pageNow":1},
+ 	success:function(list){	
+	 		$("#news_list").html("");
+	 			$.each(list,function(index,value){	
+		 			$("#news_list").append("<tr>")
+		 			.append("<td>"+value.title+"</td>")
+		 			.append("<td>"+value.n_Content+"</td>")
+		 			.append("<td>"+value.author+"</td>")
+		 			.append("<td>"+value.time+"</td>")
+		 			.append("<td><button  onclick=deleteNews("+value.nid+") class=''  type=button>删除</button></td>")
+		 			.append("<td><button id='update' class='' name="+value.nid+"  type=button>修改</button></td>")
+		 			.append("</tr>")
+	 		})
+	 		
+	 	},
+ 	error:function(){
+ 		alert("请求失败")
+ 	}
+ }
+ )
+ }
+  
+ 
+ $(function( ){              
+　　// test 的点击事件
+　　$("#select_list").click(function(){ 
+            $.ajax({
+                url:"news/selectinfo.do",
+                type:"post",
+                data:{"condition":document.getElementById('condition').value,
+                "pageNow":2},
+                dataType:"json",//返回的数据类型
+                success:function(list){	
+                	$("#news_list").html("");
+	 				$.each(list,function(index,value){	
+				 			$("#news_list").append("<tr>")
+				 			.append("<td>"+value.title+"</td>")
+				 			.append("<td>"+value.n_Content+"</td>")
+				 			.append("<td>"+value.author+"</td>")
+				 			.append("<td>"+value.time+"</td>")
+				 			.append("<td><button  id='delete' class='' onclick=deleteNews("+value.nid+")  type=button >删除</button></td>")
+		 					.append("<td><button id='update' class='' onclick=updateNews("+value.nid+")  type=button>修改</button></td>")
+				 			.append("</tr>")
+	 				})
+			 	},
+			 	error:function(){
+ 						alert("请求失败")
+ 				}
+            })  
+　　});
+  })
+ function deleteNews(id){
+    var msg =confirm("确定删除么？");
+    if(msg==true)
+        {
+        $.ajax({
+                url:"news/deleteNews.do",
+                type:"post",
+                data:{"nid":id},
+                success:function(data){	
+                if(data>0){
+                		window.location = "http://localhost:8080/HomeWork/right.jsp";
+                }
+                 else
+                 {
+                 		alert('删除失败！');
+                 }
+			 	},
+			 	error:function(){
+ 						alert("请求失败")
+ 				}
+            })  
+       }
+      else
+           alert("你取消了本次操作")
+}
+function updateNews(id){
+    var msg =confirm("确定删除么？");
+    if(msg==true)
+        {
+        $.ajax({
+                url:"news/deleteNews.do",
+                type:"post",
+                data:{"id":id},
+                success:function(data){	
+                if(data>0){
+                		window.location = "http://localhost:8080/HomeWork/right.jsp";
+                }
+                 else
+                 {
+                 		alert('删除失败！');
+                 }
+			 	},
+			 	error:function(){
+ 						alert("请求失败")
+ 				}
+            })  
+       }
+      else
+           alert("你取消了本次操作")
+}
+
+    $(function () {
+        
+		$('#addnew').click(function(){
+
+				window.location.href="addnews.html";
+		 });
+
+
+    });
+
+	function del(id)
+	{
+		
+		
+		if(confirm("确定要删除吗？"))
+		{
+		
+			var url = "index.html";
+			
+			window.location.href=url;		
+		
+		}
+	
+	
+	
+	
+	}
+</script>

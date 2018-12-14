@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gz.dao.ColumnDao">
+	<select id="getCount" resultType="Integer" >
+		select  count(*) from columns  
+	</select>
+     <select id="selectAllColumn" resultType="Columns" >
+		select  * from columns  
+	</select>
+    <select id="selectAllColumnWithPage" resultType="Columns">
+       select * from columns   limit #{startPos},#{pageSize}
+    </select>
+    
+    <resultMap type="Columns" id="columnMapper">
+      <id property="col_id" column="col_id"/>
+        <result property="name" column="name"/>
+        <result property="describe" column="describe"/>
+        <result property="image" column="image"/>
+        <collection property="categorys" select="selectChildrenById" column="col_id">
+       </collection>
+      </resultMap>
+      <select id="selectChildrenById"  resultMap="columnMapper">
+         select * from columns where cid = #{cid}	
+     </select>
+     
+	<select id="getCountByCondition" resultType="Integer">
+	    select  count(*) from columns  where name = #{name}
+	</select>
+	<select id="findColumnById" resultType="Columns" >
+		select * from columns where col_id =#{col_id} 
+	</select>
+	
+	<select id="selectAllColumnByTypeWithPage" resultType="Columns">
+	    	select * from columns  where type = #{type} limit #{startPos},#{pageSize}
+	</select>
+	<select id="selectAllColumnByNameWithPage" resultType="Columns">
+	    	select * from columns  where name = #{name} limit #{startPos},#{pageSize}
+	</select>
+	<insert id="insertColumn">
+	    insert into columns(name,describe,image,type) VALUES(#{name},#{describe},#{image},#{type});
+	</insert>
+	<delete id="deleteColumn">
+	   delete  from columns where col_id = #{id};
+	</delete>
+	<update id="updateColumn" parameterType="com.gz.bean.Columns">   
+		UPDATE columns SET name=#{name},describe=#{describe},image=#{image}, type=#{type} WHERE Nid=#{Nid}; 
+	</update>
+	
+	</mapper>

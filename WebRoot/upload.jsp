@@ -1,86 +1,49 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" type="text/css" href="jquery.fileupload/css/jquery.fileupload.css">
-<link rel="stylesheet" type="text/css" href="jquery.fileupload/css/H-ui.css">
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="jquery.fileupload/js/jquery.ui.widget.js"></script>
-<script type="text/javascript" src="jquery.fileupload/js/jquery.iframe-transport.js"></script>
-<script type="text/javascript" src="jquery.fileupload/js/jquery.fileupload.js"></script>
-<style type="text/css">
-.imgSize{
-width:190px;
-height:266px;
-}
-</style>
-<title>ajax文件上传进度条</title>
-<script type="text/javascript">
-$(function(){
-	//支持的文件类型正则表达式
-	var fileType = /\.(doc?x|xls?x|ppt?x|txt|jpg|zip|rar|png|mp4|avi)$/i;
-	$("#fileupload").fileupload({
-		url: 'file/upload.do',
-		dataType: 'json',
-		add: function(e, data) { //add表示在选择文件时判断格式是否正确
-            var goUpload = true;
-            var uploadFile = data.files[0];
-            if (!fileType.test(uploadFile.name)) {
-            	console.log(uploadFile.name);
-            	$('#uploadResult').html('');
-            	$('#uploadError').html('文件格式不正确');
-            	$('#fileName').val('');
-                goUpload = false;
-            }
-            if (goUpload == true) {
-                data.submit();
-            }
-		},
-		done: function(e, data) {   //done为文件上传成功需要做的事情
-			$('#progress').hide();
-			$('#uploadError').html('');
-			$('#uploadResult').html(data.result.fileName+' 上传成功');
-			//上传成功将文件名赋值给fileName属性,以便将文件名提交到数据库存储
-		
-			$('#fileinfo').append("<img class='imgSize'  src="+data.result.filePath+"\\"+data.result.fileName+"><br>")
-			.append("<span>文件名："+data.result.fileName+"</span><br>")
-			.append("<span>大小："+data.result.fileSize+"</span><br>")
-			.append("<span>类型："+data.result.fileType+"</span><br>")
-			append("<a href="+data.result.filePath+"\\"+data.result.fileName+">下载</a><br>");
-		},
-		progressall: function(e, data) {  //进度条显示
-			$('#progress').show();
-			$('#uploadError').html('');
-			$('#uploadResult').html('');
-			var progress = parseInt(data.loaded / data.total * 100, 10); 
-			$('#progress .progress-bar span').css('width', progress + '%');
-		}
-	});
-});
-</script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>easyUpload.js</title>
+  <link rel="stylesheet" href="css/easy-upload.css">
 </head>
-<body>	
-	<!-- <form action="xxx" > 你可以将以下代码放入form表单里面-->
-       	<div class="formControls col-md-10">
-			 <span class="btn btn-success fileinput-button mr-5">
-       			<span>浏览文件</span>
-       			<input id="fileupload" type="file" name="file">
-   			</span>
-       		<span id="uploadResult"></span><span id="uploadError" style="color: red;"></span>
-   			<div class="mt-5">
-   				<span class="uploadTip">只能上传doc,docx,xls,xlsx,ppt,pptx,txt,pdf,zip,rar,jpg格式的文件</span>
-   			</div>
-			<div id="progress" class="progress mt-10" style="display: none;">
-				<div class="progress-bar"><span class="sr-only"></span></div>
-			</div>
-			<!-- ajax上传成功后返回文件名，如value='xxx.txt' -->
-			<input type="hidden" id="fileName" name="fileName" >
-			<div id="fileinfo"></div> 		
-       	</div>
-      
-    <!-- </form> -->
-</body>
+<body>
 
+  <div id="easyContainer"></div>
+  
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- 视实际需要决定是否引入jquery.cookie-1.4.1.min.js-->
+  <script type="text/javascript" src="js/jquery.cookie-1.4.1.min.js"></script>
+  <script type="text/javascript" src="js/easyUpload.js"></script>
+  <script type="text/javascript">
+    $('#easyContainer').easyUpload({
+      allowFileTypes: '*.png;*.jpg;*.doc;*.pdf;*.zip;*.RAR;*.mp4;*.avi;*.docx;*.pdf;*.txt;*.xlsx;*.rar;*.xls;*.ppt;*.pptx',//允许上传文件类型，格式';*.doc;*.pdf'
+      allowFileSize: 1048576,//允许上传文件大小(KB)
+      selectText: '选择文件',//选择文件按钮文案
+      multi: true,//是否允许多文件上传
+      multiNum: 5,//多文件上传时允许的文件数
+      showNote: true,//是否展示文件上传说明
+      note: '提示：最多上传5个文件，支持格式为doc、pdf、jpg',//文件上传说明
+      showPreview: true,//是否显示文件预览
+      url: 'file/upload.do',//上传文件地址
+      fileName: 'upload',//文件filename配置参数
+      //formParam: {
+       // token: $.cookie('token_cookie')//不需要验证token时可以去掉
+    //  },//文件filename以外的配置参数，格式：{key1:value1,key2:value2}
+      okCode: 200,//与后端返回数据code值一致时执行成功回调，不配置默认200
+      timeout: 30000,//请求超时时间
+      successFunc: function(res) {
+        console.log('成功回调', res);
+      },//上传成功回调函数
+      errorFunc: function(res) {
+        console.log('失败回调', res);
+      },//上传失败回调函数
+      deleteFunc: function(res) {
+        console.log('删除回调', res);
+      }//删除文件回调函数
+    });
+  </script>
+  
+</body>
 </html>

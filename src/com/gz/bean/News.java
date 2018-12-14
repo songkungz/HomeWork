@@ -9,16 +9,14 @@ private String n_Content;
 private Date Time;
 private String Author;
 private String  imge;
-
-
 public News() {
 	super();
 }
 
-public int getNid() {
+public Integer getNid() {
 	return Nid;
 }
-public void setNid(int nid) {
+public void setNid(Integer nid) {
 	Nid = nid;
 }
 public String getTitle() {
@@ -56,4 +54,8 @@ public String getImge() {
 public void setImge(String imge) {
 	this.imge = imge;
 }
+
+
+
+
 }

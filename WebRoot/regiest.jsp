@@ -27,25 +27,47 @@ body{font:normal 15px/1.5 Arial, Helvetica, Free Sans, sans-serif;color: #222;ba
 #my-form{width:755px;margin:0 auto;border:1px solid #ccc;padding:3em;border-radius:3px;box-shadow:0 0 2px rgba(0,0,0,.2);}
 #comments{width:350px;height:100px;}
 </style>
-<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
-function  reg(){
-		var name = document.getElementById('username').value;
-		var sex = document.getElementById('states').value;
-		var e_mail = document.getElementsByName('email')[0];
-		var password = document.getElementById('pass').value;
-		
-		 if( name==null ||password==null ||sex==null||e_mail==null)
-		 {
-		 		 alert('亲，不满足注册条件哦！')
-		 		 return false;
-		 }
-		 else
-		 {
-		  		 return true;
-		 }
-		
-}
+$(function  (){
+$("#submit").click(function(){
+ var str ={
+        "name":document.getElementById('username').value,
+        "sex":document.getElementById('states').value,
+        "e_mail":document.getElementById('email').value,
+        "password":document.getElementById('pass').value,
+        "phone":document.getElementById('phone').value,
+        "age":document.getElementsByTagName("zip")[0]
+        }
+	    var str_json = JSON.stringify(str);
+	    $.ajax({
+	            url:"user/regiest.do",
+                type:"post",
+                data:str_json,
+               contentType:"application/json; charset=utf-8",
+                success:function(data){	
+                if(data==400){
+                        alert(data.message);
+                		window.location.href = "http://localhost:8080/HomeWork/login.jsp";
+                }
+                 else if(data == 300)
+                 {
+                 		alert(data.message);
+                 }
+                 else
+                 {
+                        alert(data.message);
+                 }
+                 
+			 	},
+			 	error:function(){
+ 						alert("请求失败")
+ 				}
+            })  
+})
+
+       
+})
 
 
 </script>
@@ -68,15 +90,14 @@ function  reg(){
           <div><label>性别:</label>
           <select id="states" name="states">
             <option value="default">&ndash; 选择性别 &ndash;</option>
-            <option value="nan">男</option>
-            <option value="nv">女</option>
+            <option value="男">男</option>
+            <option value="女">女</option>
           </select>
         </div>    
-         <div><label>年龄:</label><input type="text" name="zip" data-ideal="zip"/></div>
+         <div><label>年龄:</label><input type="text" id="age" name="zip" data-ideal="zip"/></div>
           
           <div><label>邮箱:</label><input id="email" name="email" data-ideal="required email" type="email"/></div>
-       
-                <div><label>电话:</label><input type="tel" name="phone" data-ideal="phone"/></div>
+                <div><label>电话:</label><input type="tel" id="phone"name="phone" data-ideal="phone"/></div>
      
    
       </section>
@@ -84,7 +105,7 @@ function  reg(){
       <div><hr/></div>
 
       <div>
-        <button type="submit" >提交</button>
+        <button type="button" id="submit">提交</button>
         <button id="reset" type="button">重置</button>
       </div>
 
@@ -100,8 +121,8 @@ function  reg(){
 <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/jquery.idealforms.js"></script>
-<script type="text/javascript">
-var options = {
+<div style="text-align:center;">
+<script type="text/javascript">var options = {
 
 	onFail: function(){
 		alert( $myform.getInvalid().length +' invalid fields.' )
@@ -150,9 +171,8 @@ $('#reset').click(function(){
 	$myform.reset().fresh().focusFirst()
 });
 
-$myform.focusFirst();
-</script>
-<div style="text-align:center;">
+$myform.focusFirst()
+</script>;
 <p>来源：More Templates </p>
 </div>
 </body>

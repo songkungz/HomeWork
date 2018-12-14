@@ -3,21 +3,54 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gz.dao.UserDao">
-	
-	<select id="selectUser" resultType="User">
-		select * from user 
+	<select id="getCount" resultType="Integer">
+		select count(*) from user
+	</select>
+	 <select id="selectCourseByUserId"  resultMap="userCourseMapper">
+         select u.*,t.* from user u, train_course t,user_course uc 
+ 			where u.Uid=uc.Uid and t.Cid=uc.Cid and  u.Uid=#{Uid}
+     </select>
+    <resultMap type="User" id="userCourseMapper">
+      <id property="Uid" column="Uid"/>
+        <result property="Uname" column="Uname"/>
+        <collection property="ucourse" ofType="com.gz.bean.Course">
+             <id property="Cid" column="Cid"/>
+             <result property="Cname" column="Cname"/>
+             <result property="Cteacher" column="Cteacher"/>
+             <result property="Cimage" column="Cimage"/>
+             <result property="Csynopsis" column="Csynopsis"/>
+             <result property="Ctitle" column="Ctitle"/>
+             <result property="Cnum" column="Cnum"/>
+             <result property="Cprice" column="Cprice"/>
+             <result property="Ctype" column="Ctype"/>            
+       </collection>
+   </resultMap>
+	<select id="getCountByCondition" resultType="Integer">
+	     select count(*) from user where Uname=#{Uname}
 	</select>
 	<select id="selectUserByName" resultType="User">
-		select * from user where Uname=#{Name} 
+	     select * from user where Uname=#{Uname}
+	</select>
+	<select id="findUserWithPage" resultType="User">
+		select * from user limit #{startPos},#{pageSize}
+	</select>
+	<select id="selectByUserId" resultType="User">
+	     select * from user where Uid = #{Uid}
+	</select>
+	<select id="findUserByNameWithPage" resultType="User">
+		select * from user where Uname=#{Uname} limit #{startPos},#{pageSize}
 	</select>
 	<select id="selectUserByCondition" resultType="User">
-		select * from user where Uname=#{Name} and Password=#{Password}
+		select * from user where Uname=#{Uname} and Password=#{Password}
 	</select>
 	<insert id="insertUser">
-	    insert into user(Uid,Uname,Age,Sex,Password,Phone,e_mail) VALUES(#{Uid},#{Name},#{Age},#{Sex},#{Password},#{Phone},#{e_mail});
+	    insert into user(Uname,Age,Sex,Password,Phone,e_mail) VALUES(#{Uname},#{Age},#{Sex},#{Password},#{Phone},#{e_mail});
+	</insert>
+	<insert id="selectCourse">
+	        insert into user_course(Uid,Cid) VALUES(#{Uid},#{Cid});
 	</insert>
 	<delete id="deleteUser">
-	 	delete * from user where Uid = ${Uid};
+	 	delete  from user where Uid = #{Uid};
 	</delete>
 	<update id="updateUser">
 	    UPDATE user SET Age=#{Age},Sex=#{Sex},Phone=#{Phone},e_mail=#{e_mail}  WHERE Uid=#{Uid};

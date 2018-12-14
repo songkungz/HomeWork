@@ -13,7 +13,6 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 body a {
-	color:red;
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
 	-moz-transition: 0.5s all;
@@ -566,7 +565,7 @@ top: 70%;
 
 .grid figure p {
 	letter-spacing: 1px;
-	font-size: 68.5%;
+	font-size: 5px;
 }
 /*-----------------*/
 /***** Apollo *****/

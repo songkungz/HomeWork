@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gz.dao.CommentDao">
+	<select id="selectComment" resultType="Comment">
+		select  * from comment  limit #{startPos},#{pageSize}
+	</select>
+	<resultMap type="Comment" id="CommentMapper">
+        <id property="Commentid" column="Commentid"/>
+        <result property="retid" column="Refid"/>
+        <result property="Cid" column="Cid"/>
+        <result property="Courselist" column="Courselist"/>
+        <result property="Uname" column="Uname"/>
+        <result property="Head_image" column="Head_image"/>
+        <result property="Comment_time" column="Comment_time"/>
+        <result property="Comment_content" column="Comment_content"/>
+        
+        <collection property="commentlist" select="selectChildrenById" column="retid">
+       </collection>
+      </resultMap>
+      <select id="selectChildrenById"  resultMap="CommentMapper">
+         select * from comment where Cid = #{Cid}	
+     </select>
+	<select id="getCountComment" resultType="Integer">
+	     select count(*) from comment where courselist=#{courselist};
+	</select>
+	<select id="getCountById" resultType="Integer">
+	     select count(*) from comment group by Cid;
+	</select>
+	<select id="getCount" resultType="Integer">
+	     select count(*) from comment 
+	</select>
+	<insert id="insertComment">
+	    insert into comment(Courselist,Uname,Head_image,Comment_time,Comment_content) VALUES(#{Courselist},#{Uname},#{Head_image},#{Comment_time},#{Comment_content});    
+	</insert>
+	<delete id="deleteComment">
+	   delete  from comment where Commentid = #{Commentid};
+	</delete>
+</mapper>

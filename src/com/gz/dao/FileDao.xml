@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gz.dao.FileDao">
+<select id="selectAllFile" resultType="FileMeta">
+    select * from resource 
+</select>
+<insert id="insertFile">
+   insert into resource (fileType,filePath,fileName,fileTime,fileSize) values(#{fileType},#{filePath},#{fileName},#{fileTime},#{fileSize})
+</insert>
+<select id="selectFileByName">
+            select * from resource where  Filename = #{fileName};
+</select>
+</mapper>

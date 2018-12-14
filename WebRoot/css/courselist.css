@@ -1,0 +1,1966 @@
+<style data-vue-ssr-id="ba7161ce:0 0f36979d:0 754f68d4:0 7012f252:0 04a19d02:0 1f9361ec:0 568db137:0">/* --------------------------------
+ * Global Style
+ * -------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+
+html {
+  position: relative;
+  min-height: 100%;
+  overflow-y: scroll; }
+
+body {
+  margin-bottom: 0px;
+  padding-bottom: 1px;
+  font-family: 'Microsoft YaHei UI', 'Microsoft YaHei', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fafafa;
+  min-width: 1180px; }
+.cname{
+	text-align:right;
+	font-size:40px;
+}
+input,
+button,
+textarea {
+  font-family: 'Microsoft YaHei UI', 'Microsoft YaHei', Helvetica, Arial, sans-serif; }
+
+img {
+  display: inline-block; }
+
+.tailweibu{
+  padding-top: 99px;
+}
+
+.m-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
+  
+.Cmore{
+  text-align: right;
+  padding-right: 20px;
+  text-decoration: none;
+  font-size: 14px;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0; } }
+
+.container .btn {
+  display: inline-block;
+  padding: 4px 10px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.42858;
+  font-size: 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  transition: all ease-in-out .3s; }
+  .container .btn.default {
+    color: #fff;
+    background-color: #b4b4b4; }
+    .container .btn.default:hover:not(:disabled) {
+      background-color: #a7a7a7; }
+  .container .btn.primary {
+    color: #fff;
+    background-color: #286A46; }
+    .container .btn.primary:hover:not(:disabled) {
+      background-color: #21573a; }
+  .container .btn.orange {
+    color: #fff;
+    background-color: #EF9632; }
+    .container .btn.orange:hover:not(:disabled) {
+      background-color: #ed8a1a; }
+  .container .btn.link {
+    color: #286A46;
+    background-color: transparent;
+    border-color: transparent; }
+    .container .btn.link:hover {
+      color: #1a452e;
+      background-color: transparent; }
+
+.container .btn:disabled {
+  opacity: .5;
+  cursor: not-allowed; }
+
+.container .btn.pill {
+  border-radius: 16px; }
+
+.container .btn.lg {
+  padding: 8px 34px;
+  font-size: 20px; }
+  .container .btn.lg.pill {
+    border-radius: 25px; }
+
+.container .btn.md {
+  padding: 6px 22px;
+  font-size: 16px; }
+  .container .btn.md.pill {
+    border-radius: 18px; }
+
+.container .btn.outline {
+  background-color: transparent; }
+  .container .btn.outline.default {
+    color: #b4b4b4;
+    border-color: #b4b4b4; }
+    .container .btn.outline.default:hover:not(:disabled) {
+      color: #EF9632;
+      border-color: #EF9632;
+      background-color: transparent; }
+  .container .btn.outline.primary {
+    color: #286A46;
+    border-color: #286A46; }
+    .container .btn.outline.primary:hover:not(:disabled) {
+      color: #fff;
+      background-color: #286A46; }
+  .container .btn.outline.orange {
+    color: #EF9632;
+    border-color: #EF9632; }
+    .container .btn.outline.orange:hover:not(:disabled) {
+      color: #fff;
+      background-color: #EF9632; }
+
+.container {
+  width: 1180px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px; }
+  .container::before, .container::after {
+    content: " ";
+    display: table; }
+  .container::after {
+    clear: both; }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+  box-sizing: border-box; }
+
+.grid-match > *,
+.grid-match > * > * {
+  display: flex;
+  flex-wrap: initial; }
+
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0; }
+  .no-gutters > .col,
+  .no-gutters > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0; }
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.col-1 {
+  flex: 0 0 8.33333%;
+  max-width: 8.33333%; }
+
+.col-offset-1 {
+  margin-left: 8.33333%; }
+
+.col-2 {
+  flex: 0 0 16.66667%;
+  max-width: 16.66667%; }
+
+.col-offset-2 {
+  margin-left: 16.66667%; }
+
+.col-3 {
+  flex: 0 0 25%;
+  max-width: 25%; }
+
+.col-offset-3 {
+  margin-left: 25%; }
+
+.col-4 {
+  flex: 0 0 33.33333%;
+  max-width: 33.33333%; }
+
+.col-offset-4 {
+  margin-left: 33.33333%; }
+
+.col-5 {
+  flex: 0 0 41.66667%;
+  max-width: 41.66667%; }
+
+.col-offset-5 {
+  margin-left: 41.66667%; }
+
+.col-6 {
+  flex: 0 0 50%;
+  max-width: 50%; }
+
+.col-offset-6 {
+  margin-left: 50%; }
+
+.col-7 {
+  flex: 0 0 58.33333%;
+  max-width: 58.33333%; }
+
+.col-offset-7 {
+  margin-left: 58.33333%; }
+
+.col-8 {
+  flex: 0 0 66.66667%;
+  max-width: 66.66667%; }
+
+.col-offset-8 {
+  margin-left: 66.66667%; }
+
+.col-9 {
+  flex: 0 0 75%;
+  max-width: 75%; }
+
+.col-offset-9 {
+  margin-left: 75%; }
+
+.col-10 {
+  flex: 0 0 83.33333%;
+  max-width: 83.33333%; }
+
+.col-offset-10 {
+  margin-left: 83.33333%; }
+
+.col-11 {
+  flex: 0 0 91.66667%;
+  max-width: 91.66667%; }
+
+.col-offset-11 {
+  margin-left: 91.66667%; }
+
+.col-12 {
+  flex: 0 0 100%;
+  max-width: 100%; }
+
+.col-offset-12 {
+  margin-left: 100%; }
+
+.cols-10 > .col-1 {
+  flex: 0 0 10%;
+  max-width: 10%; }
+
+.cols-10 > .col-offset-1 {
+  margin-left: 10%; }
+
+.cols-10 > .col-2 {
+  flex: 0 0 20%;
+  max-width: 20%; }
+
+.cols-10 > .col-offset-2 {
+  margin-left: 20%; }
+
+.cols-10 > .col-3 {
+  flex: 0 0 30%;
+  max-width: 30%; }
+
+.cols-10 > .col-offset-3 {
+  margin-left: 30%; }
+
+.cols-10 > .col-4 {
+  flex: 0 0 40%;
+  max-width: 40%; }
+
+.cols-10 > .col-offset-4 {
+  margin-left: 40%; }
+
+.cols-10 > .col-5 {
+  flex: 0 0 50%;
+  max-width: 50%; }
+
+.cols-10 > .col-offset-5 {
+  margin-left: 50%; }
+
+.cols-10 > .col-6 {
+  flex: 0 0 60%;
+  max-width: 60%; }
+
+.cols-10 > .col-offset-6 {
+  margin-left: 60%; }
+
+.cols-10 > .col-7 {
+  flex: 0 0 70%;
+  max-width: 70%; }
+
+.cols-10 > .col-offset-7 {
+  margin-left: 70%; }
+
+.cols-10 > .col-8 {
+  flex: 0 0 80%;
+  max-width: 80%; }
+
+.cols-10 > .col-offset-8 {
+  margin-left: 80%; }
+
+.cols-10 > .col-9 {
+  flex: 0 0 90%;
+  max-width: 90%; }
+
+.cols-10 > .col-offset-9 {
+  margin-left: 90%; }
+
+.cols-10 > .col-10 {
+  flex: 0 0 100%;
+  max-width: 100%; }
+
+.cols-10 > .col-offset-10 {
+  margin-left: 100%; }
+
+.col {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%; }
+
+.media {
+  display: flex;
+  align-items: flex-start; }
+
+.media-body {
+  flex: 1; }
+
+.media-left {
+  padding-right: 10px; }
+
+.media-right {
+  padding-left: 10px; }
+
+.media-heading {
+  margin-top: 0;
+  margin-bottom: 5px; }
+
+.media-content {
+  font-size: 13px; }
+
+.avatar {
+  display: inline-block;
+  border-radius: 100%;
+  overflow: hidden; }
+  .avatar img {
+    display: block; }
+
+.pull-right {
+  float: right; }
+
+.pull-left {
+  float: left; }
+
+.clearfix::before, .clearfix::after {
+  content: " ";
+  display: table; }
+
+.clearfix::after {
+  clear: both; }
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.text-middle {
+  position: relative; }
+  .text-middle::before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle; }
+
+.text-left {
+  text-align: left !important; }
+
+.text-center {
+  text-align: center !important; }
+
+.text-right {
+  text-align: right !important; }
+
+.text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+.text-ellipsis-line-2 {
+  display: -webkit-box;
+  /* autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.text-uppercase {
+  text-transform: uppercase !important; }
+
+.text-red {
+  color: red !important; }
+
+.text-orange {
+  color: #EF9632 !important; }
+
+.text-white {
+  color: white !important; }
+
+.text-grey {
+  color: #666 !important; }
+
+.text-grey-dark {
+  color: #333 !important; }
+
+.text-grey-light {
+  color: #999 !important; }
+
+.text-grey-lighter {
+  color: #ccc !important; }
+
+.align-items-center {
+  align-items: center !important; }
+
+.justify-content-center {
+  justify-content: center !important; }
+
+.d-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.fit-cover {
+  object-fit: cover !important; }
+
+.line-through {
+  text-decoration: line-through !important; }
+
+.decoration-none {
+  text-decoration: none !important; }
+
+.leading-none {
+  line-height: 1 !important; }
+
+.arrow {
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: middle; }
+
+.arrow-up {
+  height: 8px;
+  width: 8px;
+  border: 1px solid currentColor;
+  border-width: 1px 0 0 1px;
+  transform: rotate(45deg);
+  margin-top: 2.82885px; }
+
+.arrow-down {
+  height: 8px;
+  width: 8px;
+  border: 1px solid currentColor;
+  border-width: 1px 0 0 1px;
+  transform: rotate(225deg);
+  margin-top: -2.82885px; }
+
+.arrow-left {
+  height: 8px;
+  width: 8px;
+  border: 1px solid currentColor;
+  border-width: 1px 0 0 1px;
+  transform: rotate(315deg);
+  margin-right: -2.82885px; }
+
+.arrow-right {
+  height: 8px;
+  width: 8px;
+  border: 1px solid currentColor;
+  border-width: 1px 0 0 1px;
+  transform: rotate(135deg);
+  margin-right: 2.82885px; }
+
+.label {
+  display: inline-block;
+  padding: .5em .8em .5em;
+  font-size: 10px;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  box-sizing: border-box; }
+  .label.default {
+    background-color: #999; }
+  .label.primary {
+    background-color: #286A46; }
+
+.label.outline {
+  background-color: transparent; }
+  .label.outline.default {
+    border: 1px solid #999;
+    color: #999; }
+  .label.outline.primary {
+    border: 1px solid #286A46;
+    color: #286A46; }
+
+.f-w-100 {
+  font-weight: 100 !important; }
+
+.f-w-200 {
+  font-weight: 200 !important; }
+
+.f-w-300 {
+  font-weight: 300 !important; }
+
+.f-w-400 {
+  font-weight: 400 !important; }
+
+.f-w-500 {
+  font-weight: 500 !important; }
+
+.f-w-600 {
+  font-weight: 600 !important; }
+
+.f-w-700 {
+  font-weight: 700 !important; }
+
+.f-w-800 {
+  font-weight: 800 !important; }
+
+.f-w-900 {
+  font-weight: 900 !important; }
+
+.f-s-10 {
+  font-size: 10px !important; }
+
+.f-s-12 {
+  font-size: 12px !important; }
+
+.f-s-14 {
+  font-size: 14px !important; }
+
+.f-s-16 {
+  font-size: 16px !important; }
+
+.f-s-18 {
+  font-size: 18px !important; }
+
+.f-s-20 {
+  font-size: 20px !important; }
+
+.f-s-22 {
+  font-size: 22px !important; }
+
+.f-s-24 {
+  font-size: 24px !important; }
+
+.f-s-26 {
+  font-size: 26px !important; }
+
+.f-s-28 {
+  font-size: 28px !important; }
+
+.f-s-30 {
+  font-size: 30px !important; }
+
+.f-s-32 {
+  font-size: 32px !important; }
+
+.f-s-34 {
+  font-size: 34px !important; }
+
+.f-s-36 {
+  font-size: 36px !important; }
+
+.f-s-0 {
+  font-size: 0 !important; }
+
+.align-top {
+  vertical-align: top !important; }
+
+.align-middle {
+  vertical-align: middle !important; }
+
+.align-bottom {
+  vertical-align: bottom !important; }
+
+.align-text-top {
+  vertical-align: text-top !important; }
+
+.m-auto {
+  margin: 0 auto !important; }
+
+.m-0 {
+  margin: 0px !important; }
+
+.m-t-0 {
+  margin-top: 0px !important; }
+
+.m-r-0 {
+  margin-right: 0px !important; }
+
+.m-b-0 {
+  margin-bottom: 0px !important; }
+
+.m-l-0 {
+  margin-left: 0px !important; }
+
+.m-5 {
+  margin: 5px !important; }
+
+.m-t-5 {
+  margin-top: 5px !important; }
+
+.m-r-5 {
+  margin-right: 5px !important; }
+
+.m-b-5 {
+  margin-bottom: 5px !important; }
+
+.m-l-5 {
+  margin-left: 5px !important; }
+
+.m-10 {
+  margin: 10px !important; }
+
+.m-t-10 {
+  margin-top: 10px !important; }
+
+.m-r-10 {
+  margin-right: 10px !important; }
+
+.m-b-10 {
+  margin-bottom: 10px !important; }
+
+.m-l-10 {
+  margin-left: 10px !important; }
+
+.m-15 {
+  margin: 15px !important; }
+
+.m-t-15 {
+  margin-top: 15px !important; }
+
+.m-r-15 {
+  margin-right: 15px !important; }
+
+.m-b-15 {
+  margin-bottom: 15px !important; }
+
+.m-l-15 {
+  margin-left: 15px !important; }
+
+.m-20 {
+  margin: 20px !important; }
+
+.m-t-20 {
+  margin-top: 20px !important; }
+
+.m-r-20 {
+  margin-right: 20px !important; }
+
+.m-b-20 {
+  margin-bottom: 20px !important; }
+
+.m-l-20 {
+  margin-left: 20px !important; }
+
+.m-25 {
+  margin: 25px !important; }
+
+.m-t-25 {
+  margin-top: 25px !important; }
+
+.m-r-25 {
+  margin-right: 25px !important; }
+
+.m-b-25 {
+  margin-bottom: 25px !important; }
+
+.m-l-25 {
+  margin-left: 25px !important; }
+
+.m-30 {
+  margin: 30px !important; }
+
+.m-t-30 {
+  margin-top: 30px !important; }
+
+.m-r-30 {
+  margin-right: 30px !important; }
+
+.m-b-30 {
+  margin-bottom: 30px !important; }
+
+.m-l-30 {
+  margin-left: 30px !important; }
+
+.m-35 {
+  margin: 35px !important; }
+
+.m-t-35 {
+  margin-top: 35px !important; }
+
+.m-r-35 {
+  margin-right: 35px !important; }
+
+.m-b-35 {
+  margin-bottom: 35px !important; }
+
+.m-l-35 {
+  margin-left: 35px !important; }
+
+.m-40 {
+  margin: 40px !important; }
+
+.m-t-40 {
+  margin-top: 40px !important; }
+
+.m-r-40 {
+  margin-right: 40px !important; }
+
+.m-b-40 {
+  margin-bottom: 40px !important; }
+
+.m-l-40 {
+  margin-left: 40px !important; }
+
+.m-45 {
+  margin: 45px !important; }
+
+.m-t-45 {
+  margin-top: 45px !important; }
+
+.m-r-45 {
+  margin-right: 45px !important; }
+
+.m-b-45 {
+  margin-bottom: 45px !important; }
+
+.m-l-45 {
+  margin-left: 45px !important; }
+
+.m-50 {
+  margin: 50px !important; }
+
+.m-t-50 {
+  margin-top: 50px !important; }
+
+.m-r-50 {
+  margin-right: 50px !important; }
+
+.m-b-50 {
+  margin-bottom: 50px !important; }
+
+.m-l-50 {
+  margin-left: 50px !important; }
+
+.m-t--5 {
+  margin-top: -5px !important; }
+
+.m-r--5 {
+  margin-right: -5px !important; }
+
+.m-b--5 {
+  margin-bottom: -5px !important; }
+
+.m-l--5 {
+  margin-left: -5px !important; }
+
+.m-t--10 {
+  margin-top: -10px !important; }
+
+.m-r--10 {
+  margin-right: -10px !important; }
+
+.m-b--10 {
+  margin-bottom: -10px !important; }
+
+.m-l--10 {
+  margin-left: -10px !important; }
+
+.m-t--15 {
+  margin-top: -15px !important; }
+
+.m-r--15 {
+  margin-right: -15px !important; }
+
+.m-b--15 {
+  margin-bottom: -15px !important; }
+
+.m-l--15 {
+  margin-left: -15px !important; }
+
+.m-t--20 {
+  margin-top: -20px !important; }
+
+.m-r--20 {
+  margin-right: -20px !important; }
+
+.m-b--20 {
+  margin-bottom: -20px !important; }
+
+.m-l--20 {
+  margin-left: -20px !important; }
+
+.m-t--25 {
+  margin-top: -25px !important; }
+
+.m-r--25 {
+  margin-right: -25px !important; }
+
+.m-b--25 {
+  margin-bottom: -25px !important; }
+
+.m-l--25 {
+  margin-left: -25px !important; }
+
+.m-t--30 {
+  margin-top: -30px !important; }
+
+.m-r--30 {
+  margin-right: -30px !important; }
+
+.m-b--30 {
+  margin-bottom: -30px !important; }
+
+.m-l--30 {
+  margin-left: -30px !important; }
+
+.m-t--35 {
+  margin-top: -35px !important; }
+
+.m-r--35 {
+  margin-right: -35px !important; }
+
+.m-b--35 {
+  margin-bottom: -35px !important; }
+
+.m-l--35 {
+  margin-left: -35px !important; }
+
+.m-t--40 {
+  margin-top: -40px !important; }
+
+.m-r--40 {
+  margin-right: -40px !important; }
+
+.m-b--40 {
+  margin-bottom: -40px !important; }
+
+.m-l--40 {
+  margin-left: -40px !important; }
+
+.m-t--45 {
+  margin-top: -45px !important; }
+
+.m-r--45 {
+  margin-right: -45px !important; }
+
+.m-b--45 {
+  margin-bottom: -45px !important; }
+
+.m-l--45 {
+  margin-left: -45px !important; }
+
+.m-t--50 {
+  margin-top: -50px !important; }
+
+.m-r--50 {
+  margin-right: -50px !important; }
+
+.m-b--50 {
+  margin-bottom: -50px !important; }
+
+.m-l--50 {
+  margin-left: -50px !important; }
+
+.p-0 {
+  padding: 0px !important; }
+
+.p-t-0 {
+  padding-top: 0px !important; }
+
+.p-r-0 {
+  padding-right: 0px !important; }
+
+.p-b-0 {
+  padding-bottom: 0px !important; }
+
+.p-l-0 {
+  padding-left: 0px !important; }
+
+.p-5 {
+  padding: 5px !important; }
+
+.p-t-5 {
+  padding-top: 5px !important; }
+
+.p-r-5 {
+  padding-right: 5px !important; }
+
+.p-b-5 {
+  padding-bottom: 5px !important; }
+
+.p-l-5 {
+  padding-left: 5px !important; }
+
+.p-10 {
+  padding: 10px !important; }
+
+.p-t-10 {
+  padding-top: 10px !important; }
+
+.p-r-10 {
+  padding-right: 10px !important; }
+
+.p-b-10 {
+  padding-bottom: 10px !important; }
+
+.p-l-10 {
+  padding-left: 10px !important; }
+
+.p-15 {
+  padding: 15px !important; }
+
+.p-t-15 {
+  padding-top: 15px !important; }
+
+.p-r-15 {
+  padding-right: 15px !important; }
+
+.p-b-15 {
+  padding-bottom: 15px !important; }
+
+.p-l-15 {
+  padding-left: 15px !important; }
+
+.p-20 {
+  padding: 20px !important; }
+
+.p-t-20 {
+  padding-top: 20px !important; }
+
+.p-r-20 {
+  padding-right: 20px !important; }
+
+.p-b-20 {
+  padding-bottom: 20px !important; }
+
+.p-l-20 {
+  padding-left: 20px !important; }
+
+.p-25 {
+  padding: 25px !important; }
+
+.p-t-25 {
+  padding-top: 25px !important; }
+
+.p-r-25 {
+  padding-right: 25px !important; }
+
+.p-b-25 {
+  padding-bottom: 25px !important; }
+
+.p-l-25 {
+  padding-left: 25px !important; }
+
+.p-30 {
+  padding: 30px !important; }
+
+.p-t-30 {
+  padding-top: 30px !important; }
+
+.p-r-30 {
+  padding-right: 30px !important; }
+
+.p-b-30 {
+  padding-bottom: 30px !important; }
+
+.p-l-30 {
+  padding-left: 30px !important; }
+
+.p-35 {
+  padding: 35px !important; }
+
+.p-t-35 {
+  padding-top: 35px !important; }
+
+.p-r-35 {
+  padding-right: 35px !important; }
+
+.p-b-35 {
+  padding-bottom: 35px !important; }
+
+.p-l-35 {
+  padding-left: 35px !important; }
+
+.p-40 {
+  padding: 40px !important; }
+
+.p-t-40 {
+  padding-top: 40px !important; }
+
+.p-r-40 {
+  padding-right: 40px !important; }
+
+.p-b-40 {
+  padding-bottom: 40px !important; }
+
+.p-l-40 {
+  padding-left: 40px !important; }
+
+.p-45 {
+  padding: 45px !important; }
+
+.p-t-45 {
+  padding-top: 45px !important; }
+
+.p-r-45 {
+  padding-right: 45px !important; }
+
+.p-b-45 {
+  padding-bottom: 45px !important; }
+
+.p-l-45 {
+  padding-left: 45px !important; }
+
+.p-50 {
+  padding: 50px !important; }
+
+.p-t-50 {
+  padding-top: 50px !important; }
+
+.p-r-50 {
+  padding-right: 50px !important; }
+
+.p-b-50 {
+  padding-bottom: 50px !important; }
+
+.p-l-50 {
+  padding-left: 50px !important; }
+
+.d-block {
+  display: block !important; }
+
+.d-inline-block {
+  display: inline-block !important; }
+
+.d-inline {
+  display: inline !important; }
+
+.d-none {
+  display: none !important; }
+
+.d-flex {
+  display: flex !important; }
+
+.static {
+  position: static !important; }
+
+.fixed {
+  position: fixed !important; }
+
+.absolute {
+  position: absolute !important; }
+
+.relative {
+  position: relative !important; }
+
+.sticky {
+  position: sticky !important; }
+
+
+.m-botnav {
+  display: none;
+}
+.course-nav {
+  margin: 25px 0;
+}
+
+
+.top-warp[data-v-062ec5dc] {
+  background: #000;
+  -webkit-transition: .25s;
+  transition: .25s;
+}
+.top-right[data-v-062ec5dc] {
+  width: 960px;
+  height: 425px;
+  float: right;
+}
+.rank-box[data-v-062ec5dc] {
+  padding: 50px 30px;
+  background: #fff;
+}
+
+
+.top-left[data-v-bc895e86] {
+  width: 220px;
+  background: #ffffff;
+  float: left;
+  position: relative;
+}
+.top-left a[data-v-bc895e86]:hover {
+  text-decoration: underline;
+}
+.top-left .f-c9[data-v-bc895e86] {
+  color: #666;
+}
+.top-left .top-left-cell[data-v-bc895e86]:hover {
+  background-color: #F8F8F8;
+}
+.top-left .top-left-cell[data-v-bc895e86] {
+  height: 52px;
+  line-height: 52px;
+  border-bottom: 1px solid #eeeeee;
+  padding: 0 15px 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAKCAYAAACXDi8zAAAABGdBTUEAALGPC/xhBQAAAJVJREFUCB1jOHPmzDkgnv7//38mBiTAxMjIuA3Izzh37txSoCQLTI4RxDh79mwDULAeyNzIyckZpq2t/QssAZUsBUp2AU3YKSYmFgiXgEpmA+nJQLwTxUKQJAzAJYD2gIyaApTYBTQqCCwBtbwLKLiRg4PDT1ZW9jvIRS1Af/wH0suRncsE5HgBVc4wMjKKBrroD8wOAJKHR/Xc99VyAAAAAElFTkSuQmCC) no-repeat center right 15px;
+  overflow: hidden;
+}
+.top-left .first[data-v-bc895e86] {
+  display: block;
+  font-weight: 500;
+  height: 53px;
+  font-size: 18px;
+  color: #333333;
+  background: none;
+}
+.top-left .first img[data-v-bc895e86] {
+  vertical-align: middle;
+  margin: -3px 6px 0 0;
+  width: 13px;
+}
+.top-left .menu-item[data-v-bc895e86] {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.top-left .first-title[data-v-bc895e86] {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  font-size: 15px;
+  color: #333333;
+  font-weight: bold;
+}
+.top-left .menu-detail[data-v-bc895e86] {
+  z-index: 100;
+  width: 559px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: #ffffff;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+.top-left .menu-detail .menu-detail-box[data-v-bc895e86] {
+  padding: 22px 40px;
+  line-height: 48px;
+}
+.top-left .menu-detail .first-title[data-v-bc895e86] {
+  margin-right: 30px;
+}
+.top-left .menu-detail .menu-item[data-v-bc895e86] {
+  vertical-align: middle;
+  margin-right: 25px;
+}
+.top3-box[data-v-bc895e86] {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid #eee;
+  line-height: 1;
+}
+.top3-box[data-v-bc895e86] {
+  -webkit-animation: fadeIn .5s;
+          animation: fadeIn .5s;
+}
+.top3-title[data-v-bc895e86] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 22px;
+}
+.top3-title-text[data-v-bc895e86] {
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+}
+.top3-title-more[data-v-bc895e86] {
+  color: #666;
+  font-size: 12px;
+  cursor: pointer;
+}
+.top3-item[data-v-bc895e86] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 24px;
+}
+.top3-item-num[data-v-bc895e86] {
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  border-radius: 100%;
+  color: #999;
+  background-color: #f7f7f7;
+  line-height: 16px;
+  text-align: center;
+}
+.top3-item-title[data-v-bc895e86] {
+  font-size: 14px;
+}
+
+
+.lunbo-warp[data-v-2bb8bb93] {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.lunbo-warp .arrow button[data-v-2bb8bb93] {
+  border-radius: 2px;
+  border: none;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 40px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.1) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAYCAYAAADKx8xXAAAABGdBTUEAALGPC/xhBQAAAOBJREFUOBGdlF0LAUEUhjd/gkQSlySSlJT4Hf6xGyVJkrjUks/b9UxZnabm7B6n3pq38z4z0+zsRFHOSpKkjZYoRvNcGMEOOqO04kyQZA+5VWQtVJBkH10kwfiEmkGQ5gBdkawjpqFBQwI3STA+oLoGjQjcPWiPr2nQmMDDg3b4qgZNCDw9aIuvaNCMwMuDNviyBk0JvD1ojS8FIdcg4E5L1gpTVCGahaxAsM/s/23VzfiFbYeTbgXY/jkEbL8AArZfOQHbL7mA7b+VgO0/soC7nLjt6RCw/bEScIuVf8/jB1KbJ/jzvE2uAAAAAElFTkSuQmCC) no-repeat center center;
+  opacity: .75;
+  -webkit-transition: .25s;
+  transition: .25s;
+}
+.lunbo-warp .arrow button[data-v-2bb8bb93]:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+.lunbo-warp .arrow button[data-v-2bb8bb93]:active {
+  opacity: 0.6;
+}
+.lunbo-warp .arrow .left[data-v-2bb8bb93] {
+  left: 15px;
+}
+.lunbo-warp .arrow .right[data-v-2bb8bb93] {
+  right: 15px;
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+  -webkit-transform: rotate(-180deg) translateY(50%);
+          transform: rotate(-180deg) translateY(50%);
+}
+.lunbo-warp .arrow .right.isred[data-v-2bb8bb93] {
+  background: red !important;
+}
+#lunbo[data-v-2bb8bb93] {
+  position: relative;
+  overflow: hidden;
+}
+#lunbo .lunboImg[data-v-2bb8bb93] {
+  width: 100%;
+  -webkit-transition-property: left, top, -webkit-transform;
+  transition-property: left, top, -webkit-transform;
+  transition-property: transform, left, top;
+  transition-property: transform, left, top, -webkit-transform;
+  -webkit-transition-timing-function: cubic-bezier(0.3, 0.1, 0.15, 1);
+          transition-timing-function: cubic-bezier(0.3, 0.1, 0.15, 1);
+  cursor: pointer;
+}
+#lunbo .lunboImg ul[data-v-2bb8bb93] {
+  height: 100%;
+}
+#lunbo .lunboImg ul li[data-v-2bb8bb93] {
+  float: left;
+  height: 100%;
+  background-size: 100% 100%;
+  background: no-repeat center;
+  background-size: cover;
+  color: #fff;
+}
+#lunbo .lunboImg ul li .title[data-v-2bb8bb93] {
+  font-size: 30px;
+  width: 392px;
+  font-weight: 500;
+  line-height: 36px;
+  margin: 228px 0 10px 20px;
+}
+#lunbo .lunboImg ul li .subtitle[data-v-2bb8bb93] {
+  margin-left: 20px;
+  font-size: 14px;
+}
+#lunbo .icon[data-v-2bb8bb93] {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+#lunbo .icon ul li[data-v-2bb8bb93] {
+  float: left;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  line-height: 30px;
+  text-align: center;
+  background: #fff;
+  padding: 1px;
+  margin-right: 10px;
+}
+#lunbo .icon ul li.active[data-v-2bb8bb93] {
+  background: #286a46;
+  color: white;
+}
+#lunbo .icon ul li[data-v-2bb8bb93]:hover {
+  background: #77dba4;
+  cursor: pointer;
+}
+
+
+.CourseListItem_ListItem {
+  position: relative;
+  display: inline-block;
+  height: 295px;
+  width: 270px;
+  margin: 0 17px 24px;
+  margin-left:35px;
+  font-size: 14px;
+  background-color: #fff;
+  vertical-align: top;
+  -webkit-transition: .5s;
+  transition: .5s;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  overflow: hidden;
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.08);
+          box-shadow: 0 2px 2px rgba(0, 0, 0, 0.08);
+  -webkit-animation: CourseListItem_itemIn .5s;
+          animation: CourseListItem_itemIn .5s;
+}
+.CourseListItem_ListItem:hover {
+  -webkit-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  -webkit-transition: .25s;
+  transition: .25s;
+}
+.CourseListItem_ListItem:hover .CourseListItem_body {
+  -webkit-transition: .25s;
+  transition: .25s;
+}
+.CourseListItem_ListItem:hover .CourseListItem_img {
+  -webkit-transition: 1.5s;
+  transition: 1.5s;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+.CourseListItem_ListItem:hover .CourseListItem_img img {
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-filter: brightness(1.5) saturate(1.5);
+          filter: brightness(1.5) saturate(1.5);
+  opacity: 0;
+}
+@-webkit-keyframes CourseListItem_itemIn {
+from {
+    opacity: 0;
+}
+}
+@keyframes CourseListItem_itemIn {
+from {
+    opacity: 0;
+}
+}
+@-webkit-keyframes CourseListItem_lighten {
+50% {
+    -webkit-filter: brightness(1.25);
+            filter: brightness(1.25);
+}
+to {
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+}
+}
+@keyframes CourseListItem_lighten {
+50% {
+    -webkit-filter: brightness(1.25);
+            filter: brightness(1.25);
+}
+to {
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+}
+}
+.CourseListItem_body {
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+.CourseListItem_author {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.CourseListItem_cover {
+  position: relative;
+  height: 150px;
+  overflow: hidden;
+  background: #f8f8f8 center no-repeat;
+  background-size: cover;
+}
+.CourseListItem_img {
+  height: 100%;
+  background: center no-repeat;
+  background-size: cover;
+  -webkit-transition: 0.5s cubic-bezier(0, 0.6, 0.3, 1);
+  transition: 0.5s cubic-bezier(0, 0.6, 0.3, 1);
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+}
+.CourseListItem_img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+  opacity: 1;
+}
+.CourseListItem_tags {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 12px;
+  line-height: 22px;
+}
+.CourseListItem_tag {
+  float: left;
+  position: relative;
+  margin-right: 13px;
+  padding: 0 .25em;
+  background-color: #666;
+  border-color: #666;
+  color: #fff;
+}
+.CourseListItem_tag:before,
+.CourseListItem_tag:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  border: 11px solid transparent;
+  border-bottom-color: inherit;
+  border-left-color: inherit;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transform: scaleX(0.5);
+          transform: scaleX(0.5);
+}
+.CourseListItem_tag:before {
+  left: 0;
+  -webkit-transform: rotate(180deg) scaleX(0.5);
+          transform: rotate(180deg) scaleX(0.5);
+}
+.CourseListItem_tag:after {
+  left: 100%;
+}
+.CourseListItem_tag:first-child {
+  padding-left: .5em;
+}
+.CourseListItem_tag:first-child:before {
+  display: none;
+}
+.CourseListItem_tag:last-child {
+  padding-right: .5em;
+}
+.CourseListItem_tag:last-child:after {
+  display: none;
+}
+.CourseListItem_tagOnSale {
+  background-color: #ff4b36;
+  border-color: #ff4b36;
+}
+.CourseListItem_tagCombo {
+  background-color: #09924b;
+  border-color: #09924b;
+}
+.CourseListItem_tagMain {
+  background-color: #d5b45c;
+  border-color: #d5b45c;
+}
+.CourseListItem_status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0 .5em;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 12px;
+  line-height: 22px;
+}
+.CourseListItem_info {
+  height: 72px;
+  padding: 14px 10px 0;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.CourseListItem_title {
+  max-height: 42px;
+  font-size: 18px;
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+.CourseListItem_subtitle {
+  position: relative;
+  overflow: hidden;
+  color: #999;
+  font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.CourseListItem_price {
+  padding: 0 .25em;
+  color: #f00;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1;
+}
+.CourseListItem_oriPrice {
+  color: #999;
+  font-size: 14px;
+  font-weight: normal;
+  text-decoration: line-through;
+}
+.CourseListItem_hasBuy {
+  padding: 1em 10px 0;
+  text-align: right;
+  color: #666;
+}
+.CourseListItem_hasBuy {
+  -webkit-animation: fadeIn .5s;
+          animation: fadeIn .5s;
+}
+.CourseListItem_interest {
+  float: right;
+  padding: .4em 10px 0;
+  color: #999;
+  text-align: right;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 2;
+}
+.CourseListItem_interestNum {
+  color: #666;
+}
+
+
+.rank[data-v-4e7572cd] {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  margin: 0 20px;
+  border: 1px solid #CCCCCC;
+}
+.rank .rank-name[data-v-4e7572cd] {
+  font-weight: 400;
+  padding: 27px 55px 24px;
+  font-size: 22px;
+  line-height: 22px;
+  margin: 0;
+  color: #333333;
+  position: relative;
+}
+.rank .rank-name .text[data-v-4e7572cd] {
+  position: relative;
+  z-index: 2;
+}
+.rank .rank-name[data-v-4e7572cd]::after {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 8px;
+  width: 110px;
+  background: #CCCCCC;
+  left: 55px;
+  bottom: 24px;
+}
+.rank .rank-icon[data-v-4e7572cd] {
+  position: absolute;
+  opacity: 0.8;
+  width: 14px;
+  top: 18px;
+  left: 40px;
+}
+.rank .rank-list-item[data-v-4e7572cd]:nth-child(odd) {
+  background: #f7f7f7;
+}
+.rank .rank-list-item[data-v-4e7572cd] {
+  padding: 0 40px;
+  font-size: 16px;
+  width: 435px;
+  line-height: 44px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.rank .top-stree .rank-index[data-v-4e7572cd] {
+  color: #FF0000;
+}
+.rank .top-stree .course-title[data-v-4e7572cd] {
+  color: #FF0000;
+}
+</style><style id="tsbrowser_video_independent_player_style" type="text/css">                                                            [tsbrowser_force_max_size] {                                                   width: 100% !important;                                                      height: 100% !important;                                                     left: 0px !important;                                                        top: 0px !important;                                                         margin: 0px !important;                                                      padding: 0px !important;                                                   }                                                                            [tsbrowser_force_fixed] {                                                      position: fixed !important;                                                  z-index: 9999 !important;                                                    background: black !important;                                              }                                                                            [tsbrowser_force_hidden] {                                                     opacity: 0 !important;                                                       z-index: 0 !important;                                                     }                                                                            [tsbrowser_hide_scrollbar] {                                                   overflow: hidden !important;                                               }</style></head>
+<body>
+<div id="app"><div><div><!-- @NAV -->
+<!-- app download banner -->
+<style type="text/css">
+.u-appbanner{ z-index:100; padding:30px 20px; display:none; background:#24794b;}
+.u-appbanner.isMobile{ display:block;}
+.u-appbanner .logo{ width:305px; height:83px; background:url(//img0.ph.126.net/xZTep95Rkn6e_GUjRw22Gg==/6608586051446202447.png) 0 0 no-repeat;}
+.u-appbanner .close{ margin:30px 0 0 25px; width:28px; height:28px; background:url(//img0.ph.126.net/xZTep95Rkn6e_GUjRw22Gg==/6608586051446202447.png) 0 -168px no-repeat;}
+.u-appbanner .dlbtn{ margin-top:10px; width:178px; height:64px; background:url(//img0.ph.126.net/xZTep95Rkn6e_GUjRw22Gg==/6608586051446202447.png) 0 -97px no-repeat;}
+</style>
+<div class="u-appbanner f-pr f-cb" id="j-appbanner">
+	<div class="logo f-fl"></div>
+    <a class="f-fr close" id="j-appbanner-close"></a>
+    <a class="f-fr dlbtn" href="http://open.163.com/special/phonedownload/"></a>
+</div>
+<script type="text/javascript">
+(function(g, doc) {
+	var bannerNode = doc.getElementById('j-appbanner');
+	var testAndroid = /(android)/ig,
+        testAppleIphone = /(iphone)/ig,
+        testAppleIpad = /(ipad)/ig;
+    var useragent = navigator.userAgent.toLowerCase(); 
+    var isMobile = testAndroid.test(useragent) || testAppleIphone.test(useragent) || testAppleIpad.test(useragent);
+	doc.getElementById('j-appbanner-close').onclick = function(){
+		bannerNode.style.display = 'none';
+	}	
+	if(isMobile){
+		bannerNode.className = 'u-appbanner f-cb isMobile';
+	}
+})(window, document);
+</script>
+<!-- /app download banner -->
+<!-- 通用头部，2015春节 -->
+<style>
+    .u-nav2 .hd-share .shicon1:hover .qrcode,
+    .u-nav2 .hd-share .shicon2:hover .qrcode,
+    .u-nav2 .hd-share .shicon3:hover .qrcode,
+    .u-nav2 .hd-share .shicon4:hover .qrcode {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+<style>
+    .home-nav-appdownload-btn {
+      position: relative
+    }
+    .home-nav-appdownload-img {
+      width: 160px
+    }
+    .home-nav-appdownload-hint {
+      margin: 10px;
+      color: #000;
+      text-align: center
+    }
+    .home-nav-appdownload-btn:hover .home-nav-appdownload {
+      visibility: visible;
+      opacity: 1
+    }
+    .home-nav-appdownload {
+      position: absolute;
+      top: 40px;
+      right: 0;
+      background: #fff;
+      visibility: hidden;
+      transition: opacity .2s;
+      opacity: 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .home-nav-appdownload-imgwrap {
+      margin: 10px
+    }
+    .mainnav .hot {
+      position: relative;
+      overflow: inherit;
+    }
+    .mainnav .hot:after {
+      content: "HOT";
+      display: block;
+      position: absolute;
+      top: -6px;
+      right: -11px;
+      z-index: 999;
+      padding: 0 .75em;
+      border-radius: 8px 8px 8px 0;
+      font-size: 11px;
+      line-height: 16px;
+      background: #ff4b36;
+      transition: .25s
+    }
+    .mainnav .hot:hover:after {
+      transform: translate(0, -25%);
+    }
+  </style>
+<style>
+    .m-midnav {
+      height: 40px;
+      padding: 30px 0;
+    }
+    .m-midnav .logo {
+      height: 40px;
+      width: 223px;
+      background: url('https://plus-cms-bucket.ws.126.net/2018/09/26/258f3b40903c438e8e78d50628a1ea3e.png') no-repeat;
+    }
+    .m-midnav-right {
+      float: right;
+      height: 100%;
+      padding-top: 2px;
+    }
+    .u-nav2 .li {
+      border-left: none;
+    }
+    .m-midnav .search {
+      margin-top: 3px;
+      margin-right: 142px;
+    }
+    .u-nav2 .active,
+    .u-nav2 .hd-mycenter {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      z-index: 800;
+    }
+    .m-midnav .g-container {
+      width: 1180px;
+    }
+    .m-botnav {
+      z-index: 799
+    }
+    .u-login {
+      max-width: 100px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .open-all-course{
+      display: none;
+      color: #333333;
+      position: absolute;
+      top: -30px;
+      font-size: 16px;
+      left: 223px;
+      padding: 0 10px;
+      height: 100px;
+      line-height: 100px;
+    }
+    .open-all-course:hover{
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3)
+    }
+    #all-course-box{
+      position: absolute;
+      top: 100%;
+      left: 0;
+    }
+  </style>
+<style>
+    /* 个人中心-优惠券 */
+    #center-coupon{
+        color: orange;
+        display: none;
+    }
+    #center-coupon.empty {
+        color: silver;
+    }
+    #center-coupon::before{
+        content: '(';
+        color: #666
+    }
+    #center-coupon::after{
+        content: ')';
+        color: #666
+    }
+</style>
+<div class="g-wrap">
+    <div class="m-midnav">
+        <div class="g-container clear f-pr">
+            <div class="m-midnav-right">
+                <ul class="u-nav2 right clear">
+                    <li class="left li rel u-login j-login hide" style="display: none;">
+                        <span class="li f-c6 j-username"></span>
+                    </li>
+                    <li class="left li rel u-beforelogin j-beforelogin">
+                        <a class="f-c6 li j-loginBtn" id="urs_login_btn">登录/注册</a>
+                    </li>
+                    <li class="left li rel">
+                        <a class="link f-c6" href="https://vip.open.163.com/center/myOrder">已购课程</a>
+                    </li>
+                    <li class="left li rel j-hoverdown" data-for="j-hoverdown-mycenter">
+                        <a class="f-cgreen" href="https://vip.open.163.com/center/myOrder">
+                            <span>个人中心</span>
+                            <span class="f-icon"></span>
+                        </a>
+                        <ul class="hd-mycenter hide abs j-downitem">
+                            <li>
+                                <a class="link f-c6" href="https://vip.open.163.com/center/myOrder">已购课程</a>
+                            </li>
+                            <li>
+                                <a class="link f-c6" href="https://vip.open.163.com/center/myCoupon">优惠券<span id="center-coupon"></span></a>
+                            </li>
+                            <li>
+                                <a class="link f-c6" href="https://c.open.163.com/center/myCourse.htm">我的收藏</a>
+                            </li>
+                            <li>
+                                <a class="link f-c6" href="https://c.open.163.com/center/myRecord.htm">播放记录</a>
+                            </li>
+                            <li>
+                                <a class="link f-c6" href="https://c.open.163.com/center/myNotes.htm">我的笔记</a>
+                            </li>
+                            <li>
+                                <a class="link f-c6 j-logoutBtn j-login" style="display: none;">退出</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="left li rel j-hoverdown">
+                        <span class="f-icon f-c6"></span>
+                        <span class="f-c6">关注我们</span>
+                        <ul class="hd-share hide abs j-downitem clear">
+                            <li class="left">
+                                <a class="shicon1" href="http://weibo.com/163open" target="_blank"></a>
+                            </li>
+                            <li class="left">
+                                <span class="shicon3">
+                                    <span class="qrcode">
+                                        <img src="./网易公开课_files/4a132a39fbcc466cb91ad7df2bca1d3c.jpeg">
+                                    </span>
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <a href="https://open.163.com/">
+                <h1 class="logo left notxt">网易公开课</h1>
+            </a>
+            <div class="open-all-course">
+                全部课程
+                <div id="all-course-box">
+                    <div id="all-course-container"></div>
+                </div>
+            </div>
+            <form accept-charset="utf-8" id="j-SearchForm" target="_blank" action="https://c.open.163.com/search/search.htm">
+                <div class="search right rel j-input">
+                    <label class="phold f-c9" for="j-search">搜索课程、视频、公开课策划</label>
+                    <input autocomplete="off" type="text" name="query" class="inputxt j-txt" id="j-search">
+                    <input type="submit" class="subbtn f-icon" value="">
+                    <input type="hidden" name="enc" value="™">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="m-botnav rel">
+        <div class="main">
+            <div class="g-container clear">
+                <ul>
+                    <li class="mainnav left rel">
+                        <a class="link f-f0 nowrp f-cf" href="https://open.163.com/" target="_self">首页</a>
+                    </li>
+                    <li class="mainnav left rel">
+                        <a class="link f-f0 nowrp f-cf left hot" href="https://vip.open.163.com/" target="_self">精品课程</a>
+                    </li>
+                    <li class="mainnav left rel">
+                        <a class="link f-f0 nowrp f-cf left" href="https://open.163.com/ted/" target="_self">TED</a>
+                    </li>
+                    <li class="mainnav left rel">
+                        <a class="link f-f0 nowrp f-cf" href="https://open.163.com/ocw/" target="_self">国际名校公开课</a>
+                    </li>
+                    <li class="mainnav left rel">
+                        <a class="link f-f0 nowrp f-cf" href="https://open.163.com/cuvocw/" target="_self">中国大学视频公开课</a>
+                    </li>
+                    <li class="mainnav left rel">
+                        <a class="link f-f0 nowrp f-cf" href="https://open.163.com/appreciation" target="_self">赏课</a>
+                    </li>
+                    <li class="mainnav left rel">
+                        <a class="link f-cf f-f0" href="https://open.163.com/special/collection_index/" target="_self">公开课策划</a>
+                    </li>
+                    <li class="mainnav left rel">
+                        <a class="link f-f0 nowrp f-cf" href="https://open.163.com/khan/" target="_self">可汗学院</a>
+                    </li>
+                    <li class="mainnav left f-cf rel">
+                        <a class="link f-f0 f-cf nowrp" href="http://open.163.com/taidu/" target="_self">态度公开课</a>
+                    </li>
+                    <li class="left">
+                        <!-- ad -->
+                        <div class="left" style="margin-top:3px">
+                            <!--guanming-->
+                        </div>
+                        <!-- /ad -->
+                    </li>
+                    <li class="mainnav left rel f-fr f-cf g-hide home-nav-appdownload-btn">
+                        <a class="link f-f0 nowrp f-cf f-fr" href="https://open.163.com/appdownload/mobile?hom_nav" target="_blank">客户端下载</a>
+                        <div class="home-nav-appdownload">
+                            <p class="home-nav-appdownload-hint">扫码下载网易公开课APP</p>
+                            <p class="home-nav-appdownload-imgwrap">
+                                <img class="home-nav-appdownload-img" src="./网易公开课_files/home_nav_appdownload.png">
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 确认框 -->
+    <div id="j-feedbackTip" class="u-feedbackTip f-cb" style="display:none">
+        <span class="f-ib f-fl"></span>
+        <h2 class="f-ib f-fl"></h2>
+    </div>
+    <div id="j-confirmBox" class="m-confirmBox" style="display:none">
+        <div class="box">
+            <p class="txt"></p>
+        </div>
+        <div class="btn f-cb">
+            <div class="yes f-fl">确认</div>
+            <div class="false f-fl">取消</div>
+        </div>
+    </div>
+    <!-- /确认框 -->
+    <!-- 大促广告位 -->
+    <!-- 大促广告位 -->
+<style>
+   .discount-ad{
+      position: absolute;
+      width: 100%;
+      z-index: 999;
+   }
+   .discount-ad .s-ad{
+      position: absolute;
+      top:100px;
+   }
+   .discount-ad .s-left-ad{
+      left: 0;
+   }
+   .discount-ad .s-right-ad{
+      right: 0;
+   }
+</style>

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gz.dao.CourseDao">
+	<resultMap type="Course" id="courseMapper">
+      <id property="Cid" column="Cid"/>
+        <result property="Cname" column="Cname"/>
+        <result property="Ctype" column="Ctype"/>
+        <result property="Ctitle" column="Ctitle"/>
+        <result property="Cimage" column="Cimage"/>
+         <result property="Cnum" column="Cnum"/>
+         <result property="Csynopsis" column="Csynopsis"/>
+        <result property="Cprice" column="Cprice"/>
+        <result property="Cteacher" column="Cteacher"/>
+        <collection property="categorys" select="selectChildrenById" column="Cid">
+       </collection>
+      </resultMap>
+      <select id="selectChildrenById"  resultMap="courseMapper">
+         select * from train_course where Cnum = #{id}	
+     </select>
+     <select id="selectVedioById" resultMap="courseVedioMapper">
+         select c.*,v.Vtitle,v.Course_video,v.Vname from train_course c,video v where c.Cid = v.Cid and	c.Cid =#{id}
+     </select>
+     <resultMap type="Course" id="courseVedioMapper">
+      <id property="Cid" column="Cid"/>
+        <result property="Cname" column="Cname"/>
+        <result property="Ctype" column="Ctype"/>
+        <result property="Ctitle" column="Ctitle"/>
+        <result property="Cimage" column="Cimage"/>
+         <result property="Cnum" column="Cnum"/>
+         <result property="Csynopsis" column="Csynopsis"/>
+        <result property="Cprice" column="Cprice"/>
+        <result property="Cteacher" column="Cteacher"/>
+        <collection property="video" ofType="com.gz.bean.Video">
+             <id property="id" column="id"/>
+             <result property="path" column="Course_video"/>
+             <result property="title" column="Vtitle"/>   
+             <result property="vname" column="Vname"/>         
+       </collection>
+   </resultMap>
+   <select id="selectAllCourse" resultType="Course">
+		select  * from train_course limit #{startPos},#{pageSize}
+	</select>
+	<select id="selectAllCourses" resultType="Course">
+	     select  * from train_course
+	</select>
+	<select id="selectCourseById" resultType="Course">
+		select  * from train_course where Cid =#{id}
+	</select>
+		<select id="selectCourse" resultType="Course">
+		select  * from train_course where Ctype=#{Ctype} limit #{startPos},#{pageSize}
+	</select>
+	<select id="getCountByCtype" resultType="Integer">
+	     select count(*) from train_course where Ctype=#{Ctype};
+	</select>
+	<select id="getCount" resultType="Integer">
+	     select count(*) from train_course;
+	</select>
+
+	<select id="oneTypeCourse" resultType="Course">
+	           select * from train_course group by Ctype 
+	</select>
+	<select id="selectCourseByName" resultType="Course">
+		select  * from train_course where Cname=#{Cname} limit #{startPos},#{pageSize}
+	</select>
+	<select id="getCountByCname" resultType="Integer">
+	     select count(*) from train_course where Cname=#{Cname};
+	</select>
+	<insert id="insertCourse">
+	    insert into train_course(Ctype,Cname,Cimage,Cnum,Ctitle,Csynopsis,Cprice,Cteacher) VALUES(#{Ctype},#{Cname},#{Cimage},#{Cnum},#{Ctitle},#{Csynopsis},#{Cprice},#{Cteacher});    
+	</insert>
+	<update id="updateCourseById">   
+		UPDATE train_course SET Cname=#{Cname},Cimage=#{Cimage},Cnum=#{Cnum},Ctitle=#{Ctitle},Csynopsis=#{Csynopsis},Cprice=#{Cprice},Cteacher=#{Cteacher}  WHERE Cid=#{Cid}; 
+	</update>
+	<delete id="deleteCourse">
+	   delete  from train_course where Cid = #{Cid};
+	</delete>
+</mapper>

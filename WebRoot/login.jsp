@@ -11,7 +11,70 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="App Sign in Form,Login Forms,Sign up Forms,Registration Forms,News latter Forms,Elements"./>
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+$(function( ){              
+　　// test 的点击事件
+　　$("#userLogin").click(function(){ 
+            $.ajax({
+                url:"user/login.do",
+                type:"post",
+                data:{"name":document.getElementById('name').value,
+                "pwd":document.getElementById('pwd').value
+                },  
+                dataType:"json",//返回的数据类型
+                success:function(list){	   
+	                if(list.state==400)
+	                {
+	                 alert(list.message);     
+　　				 window.location.href = "http://localhost:8080/HomeWork/index.jsp";
+	                }
+	                else
+	                {
+	                   alert(list.message);
+	                 
+	                }
+			 	},
+			 	error:function(){
+ 						alert("请求失败")
+ 				}
+            })  
+　　});
+  })
+  $(function( ){              
+　　// test 的点击事件
+　　$("#superuserLogin").click(function(){ 
+            $.ajax({
+                url:"superuser/login.do",
+                type:"post",
+                data:{"name":document.getElementById('name').value,
+                "pwd":document.getElementById('pwd').value
+                },  
+                dataType:"json",//返回的数据类型
+                success:function(list){	   
+	                if(list.state==400)
+	                {
+	                 alert(list.message);     
+　　				 window.location.href = "http://localhost:8080/HomeWork/platformindex.jsp";
+	                }
+	                else
+	                {
+	                   alert(list.message);
+	                 
+	                }
+			 	},
+			 	error:function(){
+ 						alert("请求失败")
+ 				}
+            })  
+　　});
+  })
+  $(document).keyup(function(event){ 
+    if(event.keyCode ==13){ 
+      $("#userLogin").trigger("click"); 
+    } 
+});
 </script>
 <!--webfonts-->
 <!--//webfonts-->
@@ -20,20 +83,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<h1>欢迎登录</h1>
 		<div class="app-cam">
 			<div class="cam"><img src="images/cam.png" class="img-responsive" alt="" /></div>
-			<form action="user/login.do" method="post">
-				<input type="text" name="name" class="text" value="用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '用户名';}" >
-				<input type="password" name="pwd"value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+			<form>
+				<input type="text" id="name"class="text" value="用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '用户名';}" >
+				<input type="password" id="pwd"value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
 				<div class="clear"></div>
 				<div class="buttons">
 					<ul>
-						<li><input  type=submit class="hvr-sweep-to-right" value="用户登录"></li>
-						<li><input  type=submit class="hvr-sweep-to-left"  value="管理员登录"></li>
+						<li><a href="#" id="userLogin"class="hvr-sweep-to-right">用户登录</a></li>
+						<li><a href="#" id="superuserLogin"class="hvr-sweep-to-left">管理员登录</a></li>
 						<div class="clear"></div>
 					</ul>
 				</div>
 				<div class="new">
-					<p class="wang"><a href="#">忘记密码</a></p>
-					<p class="sign"><a href="regiest.jsp">没有账号，注册</a></p>
+					<p class="sign"><a href="regiest.jsp">没有账号，去注册</a></p>
 					<div class="clear"></div>
 				</div>
 			</form>
@@ -119,7 +181,7 @@ form {
   border: none;
   border-bottom:1px solid #C0C3C8;
   font-family: 'Microsoft YaHei', sans-serif;
-  background: url("../images/user.png") no-repeat 14px 20px #ffffff;
+  background: url("images/user.png") no-repeat 14px 20px #ffffff;
    border-top-left-radius:0.3em;
    -o-border-top-left-radius:0.3em;
    -moz-border-top-left-radius:0.3em;
@@ -138,7 +200,7 @@ form {
   font-weight: 500;
   border: none;
   font-family: 'Microsoft YaHei', sans-serif;
-   background: url("../images/pwd.png") no-repeat 14px 20px #ffffff;
+   background: url("images/pwd.png") no-repeat 14px 20px #ffffff;
   border: none;
    border-bottom-left-radius:0.3em;
    -o-border-bottom-left-radius:0.3em;

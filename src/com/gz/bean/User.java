@@ -1,24 +1,22 @@
 package com.gz.bean;
 
+import java.util.List;
+
 public class User {
 private int Uid;
-private String Name;
+private String Uname;
 private int  Age;
 private String Sex;
 private String Password;
 private String Phone;
 private String e_mail;
+private List<Course> ucourse;
+private List<Teacher> uteacher;
 public int getUid() {
 	return Uid;
 }
 public void setUid(int uid) {
 	Uid = uid;
-}
-public String getName() {
-	return Name;
-}
-public void setName(String name) {
-	Name = name;
 }
 public int getAge() {
 	return Age;
@@ -50,11 +48,27 @@ public String getE_mail() {
 public void setE_mail(String e_mail) {
 	this.e_mail = e_mail;
 }
-@Override
-public String toString() {
-	return "User [Uid=" + Uid + ", Name=" + Name + ", Age=" + Age + ", Sex=" + Sex + ", Password=" + Password
-			+ ", Phone=" + Phone + ", e_mail=" + e_mail + "]";
+
+public String getUname() {
+	return Uname;
 }
+public void setUname(String name) {
+	Uname = name;
+}
+public List<Course> getUcourse() {
+	return ucourse;
+}
+public void setUcourse(List<Course> ucourse) {
+	this.ucourse = ucourse;
+}
+public List<Teacher> getUteacher() {
+	return uteacher;
+}
+public void setUteacher(List<Teacher> uteacher) {
+	this.uteacher = uteacher;
+}
+
+
 
 
 }
